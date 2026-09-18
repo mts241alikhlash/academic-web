@@ -1,0 +1,18 @@
+﻿import type { RouteRecordRaw } from 'vue-router'
+
+export const occupationRoutes: RouteRecordRaw[] = [
+  {
+    path: '/setting/occupation',
+    name: 'OccupationList',
+    component: () => import('./views/OccupationListView.vue'),
+    meta: {
+      title: 'Pekerjaan',
+      requiresAuth: true,
+      requiredPermission: 'occupations.read',
+      breadcrumbs: [
+        { title: 'Pengaturan', href: '#' },
+        { title: 'Pekerjaan', href: '/setting/occupation' },
+      ],
+    },
+  },
+]
