@@ -1,0 +1,123 @@
+<script setup lang="ts">
+import { onMounted, ref, watch } from 'vue'
+import { DataTable } from '@mts241alikhlash/ui'
+import { Button } from '@mts241alikhlash/ui/button'
+import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
+import { Plus } from 'lucide-vue-next'
+import { useStudentParent } from '../composables/useStudentParent'
+import { useRoleGuard } from '@/features/platform/auth'
+import { createStudentParentColumns } from '../components/columns'
+import StudentParentFormDialog from '../components/StudentParentFormDialog.vue'
+import type { StudentParent, StudentParentFormPayload } from '../types'
+
+const {
+  items,
+  totalItems,
+  currentPage,
+  pageSize,
+  loading,
+  isSaving,
+  formError,
+  students,
+  parents,
+  fetchAll,
+  save,
+  deleteStudentParent,
+  fetchStudents,
+  fetchParents,
+  setPage,
+  setPageSize,
+} = useStudentParent()
+
+const isFormOpen = ref(false)
+const editingItem = ref<StudentParent | null>(null)
+const { can } = useRoleGuard()
+
+const columns = createStudentParentColumns({
+  onEdit: (item: StudentParent) => {
+    editingItem.value = item
+    isFormOpen.value = true
+  },
+  onDelete: (item: StudentParent, { setLoading, closeAlert }) => {
+    setLoading(true)
+    void deleteStudentParent(item.id)
+      .then((result) => {
+        if (result.success) {
+          closeAlert()
+          void fetchAll()
+        }
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+  },
+})
+
+async function handleSave(payload: StudentParentFormPayload) {
+  const result = await save(editingItem.value?.id ?? null, payload)
+  if (result.success) {
+    isFormOpen.value = false
+    await fetchAll()
+  }
+}
+
+watch(isFormOpen, (isOpen) => {
+  if (!isOpen) {
+    editingItem.value = null
+    formError.value = null
+  }
+})
+
+onMounted(async () => {
+  await Promise.all([fetchStudents(), fetchParents()])
+  await fetchAll()
+})
+</script>
+
+<template>
+  <div class="p-4 md:p-6 lg:p-8">
+    <Card
+      class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
+    >
+      <CardHeader
+        class="flex flex-row items-center justify-between border-b px-6 py-5"
+      >
+        <CardTitle class="text-2xl font-bold tracking-tight">
+          Relasi Siswa – Orang Tua
+        </CardTitle>
+        <Button
+          v-if="can('students.create')"
+          @click="isFormOpen = true"
+        >
+          <Plus class="size-4 mr-2" />
+          Tambah
+        </Button>
+      </CardHeader>
+
+      <div class="p-6">
+        <DataTable
+          :columns="columns"
+          :data="items"
+          :is-loading="loading"
+          :total-items="totalItems"
+          :page="currentPage"
+          :page-size="pageSize"
+          item-label="relasi"
+          @update:page="setPage"
+          @update:page-size="setPageSize"
+        />
+
+        <StudentParentFormDialog
+          v-if="isFormOpen"
+          v-model:open="isFormOpen"
+          :edit-data="editingItem"
+          :form-error="formError"
+          :is-saving="isSaving"
+          :students="students"
+          :parents="parents"
+          @save="handleSave"
+        />
+      </div>
+    </Card>
+  </div>
+</template>
