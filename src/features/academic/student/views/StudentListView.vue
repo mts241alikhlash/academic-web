@@ -4,7 +4,7 @@ import { ImportPreviewDialog } from '@/features/academic/shared/import-preview'
 import { studentImportColumns } from '../importPreviewColumns'
 import { ImportExportDialog } from '@/features/academic/shared/import-export'
 import { studentImportExportLabels } from '../importExportLabels'
-import { DataTable } from '@mts241alikhlash/ui'
+import { DataTable, SearchInput } from '@mts241alikhlash/ui'
 import { watchDebounced } from '@vueuse/core'
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
@@ -12,7 +12,6 @@ import { useStudent } from '../composables/useStudent'
 import { useStudentImportExport } from '../composables/useStudentImportExport'
 import { Button } from '@mts241alikhlash/ui/button'
 import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
-import { Input } from '@mts241alikhlash/ui/input'
 import {
   Select,
   SelectContent,
@@ -34,7 +33,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@mts241alikhlash/ui/dropdown-menu'
-import { ArrowLeftRight, Plus, Search, Filter } from '@lucide/vue'
+import { ArrowLeftRight, Plus, Filter } from '@lucide/vue'
 import { toast } from 'vue-sonner'
 import { getIndonesianErrorMessage } from '@mts241alikhlash/web-shared/utils/error-handler'
 import { useRoleGuard } from '@/features/platform/auth'
@@ -306,16 +305,10 @@ onMounted(async () => {
           @update:page-size="setPageSize"
         >
           <template #header-right>
-            <div class="relative w-full sm:w-48 max-w-[200px]">
-              <Search
-                class="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-muted-foreground"
-              />
-              <Input
-                v-model="filters.keyword"
-                placeholder="Cari siswa..."
-                class="h-8 pl-8 w-full text-xs"
-              />
-            </div>
+            <SearchInput
+              v-model="filters.keyword"
+              label="Cari siswa"
+            />
           </template>
         </DataTable>
       </div>

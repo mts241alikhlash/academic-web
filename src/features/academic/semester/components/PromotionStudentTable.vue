@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { SearchInput } from '@mts241alikhlash/ui'
 import { computed, nextTick, toRefs, watch } from 'vue'
 import { Button } from '@mts241alikhlash/ui/button'
 import { Checkbox } from '@mts241alikhlash/ui/checkbox'
@@ -9,7 +10,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@mts241alikhlash/ui/dialog'
-import { Input } from '@mts241alikhlash/ui/input'
 import { Label } from '@mts241alikhlash/ui/label'
 import {
   Select,
@@ -28,7 +28,7 @@ import {
   TableRow,
 } from '@mts241alikhlash/ui/table'
 import { Textarea } from '@mts241alikhlash/ui/textarea'
-import { Filter, Search, Users } from '@lucide/vue'
+import { Filter, Users } from '@lucide/vue'
 import type {
   PromotionAction,
   PromotionRecommendationItem,
@@ -281,17 +281,11 @@ function getTargetClass(row: PromotionRecommendationItem): string {
     </div>
 
     <div class="flex items-center justify-end w-full">
-      <div class="relative w-full sm:w-48 max-w-[200px]">
-        <Search
-          class="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-muted-foreground"
-        />
-        <Input
-          v-model="searchQuery"
-          placeholder="Cari siswa..."
-          :disabled="!filterClass"
-          class="h-8 pl-8 w-full text-xs"
-        />
-      </div>
+      <SearchInput
+        v-model="searchQuery"
+        label="Cari siswa"
+        :disabled="!filterClass"
+      />
     </div>
 
     <div class="overflow-x-auto rounded-xl border bg-background shadow-xs">

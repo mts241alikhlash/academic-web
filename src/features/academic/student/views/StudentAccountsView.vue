@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { useStudent } from '../composables/useStudent'
 import { createAccountColumns } from '../components/columns'
-import { DataTable } from '@mts241alikhlash/ui'
+import { DataTable, SearchInput } from '@mts241alikhlash/ui'
 import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
 import { Button } from '@mts241alikhlash/ui/button'
-import { Input } from '@mts241alikhlash/ui/input'
 import {
   Select,
   SelectContent,
@@ -21,7 +20,7 @@ import {
   DialogTitle,
 } from '@mts241alikhlash/ui/dialog'
 import { watchDebounced } from '@vueuse/core'
-import { Search, Filter } from '@lucide/vue'
+import { Filter } from '@lucide/vue'
 import { computed, onMounted, ref, watch } from 'vue'
 import { toast } from 'vue-sonner'
 import { getIndonesianErrorMessage } from '@mts241alikhlash/web-shared/utils/error-handler'
@@ -228,16 +227,10 @@ onMounted(async () => {
           @update:page-size="setPageSize"
         >
           <template #header-right>
-            <div class="relative w-full sm:w-48 max-w-[200px]">
-              <Search
-                class="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-muted-foreground"
-              />
-              <Input
-                v-model="filters.keyword"
-                placeholder="Cari siswa..."
-                class="h-8 pl-8 w-full text-xs"
-              />
-            </div>
+            <SearchInput
+              v-model="filters.keyword"
+              label="Cari siswa"
+            />
           </template>
         </DataTable>
       </div>

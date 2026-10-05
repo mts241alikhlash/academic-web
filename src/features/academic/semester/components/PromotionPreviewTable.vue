@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { SearchInput } from '@mts241alikhlash/ui'
 import { computed, ref } from 'vue'
 import type {
   PromotionRecommendationItem,
   PromotionStudentDecision,
 } from '../types'
 import { Badge } from '@mts241alikhlash/ui/badge'
-import { Input } from '@mts241alikhlash/ui/input'
 import {
   Select,
   SelectContent,
@@ -28,7 +28,6 @@ import {
   Filter,
   GraduationCap,
   RotateCcw,
-  Search,
 } from '@lucide/vue'
 
 const props = defineProps<{
@@ -166,19 +165,14 @@ const summary = computed(() => {
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-        <div class="relative sm:col-span-1">
-          <Search
-            class="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground"
-          />
-          <Input
-            v-model="searchQuery"
-            placeholder="Cari nama / NIS..."
-            class="pl-8 h-9 text-xs"
-          />
-        </div>
+        <SearchInput
+          v-model="searchQuery"
+          label="Cari nama / NIS"
+          class="sm:col-span-1 sm:w-full"
+        />
 
         <Select v-model="filterTargetClass">
-          <SelectTrigger class="h-9 text-xs">
+          <SelectTrigger class="h-8 text-xs">
             <Filter class="size-3 mr-1 text-muted-foreground" />
             <SelectValue placeholder="Semua Kelas Tujuan" />
           </SelectTrigger>
@@ -207,7 +201,7 @@ const summary = computed(() => {
         </Select>
 
         <Select v-model="filterStatus">
-          <SelectTrigger class="h-9 text-xs">
+          <SelectTrigger class="h-8 text-xs">
             <SelectValue placeholder="Semua Status" />
           </SelectTrigger>
           <SelectContent>
