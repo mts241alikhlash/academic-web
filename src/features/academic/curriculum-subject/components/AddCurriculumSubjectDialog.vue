@@ -19,7 +19,7 @@ import {
   TableHeader,
   TableRow,
 } from '@mts241alikhlash/ui/table'
-import { Loader2 } from 'lucide-vue-next'
+import { Loader2 } from '@lucide/vue'
 
 const props = defineProps<{
   open: boolean

@@ -21,7 +21,7 @@ import {
   DialogTitle,
 } from '@mts241alikhlash/ui/dialog'
 import { watchDebounced } from '@vueuse/core'
-import { Search, Filter } from 'lucide-vue-next'
+import { Search, Filter } from '@lucide/vue'
 import { computed, onMounted, ref, watch } from 'vue'
 import { toast } from 'vue-sonner'
 import { getIndonesianErrorMessage } from '@mts241alikhlash/web-shared/utils/error-handler'

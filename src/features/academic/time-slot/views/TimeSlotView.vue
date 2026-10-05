@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import TimeSlotManageTable from '../components/TimeSlotManageTable.vue'
 import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
 import { Button } from '@mts241alikhlash/ui/button'
-import { Loader2, Plus, Save } from 'lucide-vue-next'
+import { Loader2, Plus, Save } from '@lucide/vue'
 import { useRoleGuard } from '@/features/platform/auth'
 
 const { can } = useRoleGuard()

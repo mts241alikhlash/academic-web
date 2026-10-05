@@ -34,7 +34,7 @@ import {
 } from '@mts241alikhlash/ui/tooltip'
 import { Badge } from '@mts241alikhlash/ui/badge'
 import { formatEntityName } from '@mts241alikhlash/web-shared/utils/utils'
-import { ArrowLeft, Plus, Save, Trash2, Lock } from 'lucide-vue-next'
+import { ArrowLeft, Plus, Save, Trash2, Lock } from '@lucide/vue'
 import { computed, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 

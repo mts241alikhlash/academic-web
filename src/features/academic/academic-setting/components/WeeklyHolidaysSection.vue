@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@mts241alikhlash/ui/dialog'
-import { Loader2 } from 'lucide-vue-next'
+import { Loader2 } from '@lucide/vue'
 import { WEEKDAYS } from '../constants/weekdays'
 
 defineProps<{

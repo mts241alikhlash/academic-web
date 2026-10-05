@@ -1,7 +1,7 @@
 import { h } from 'vue'
 import type { ColumnDef } from '@tanstack/vue-table'
 import { Button } from '@mts241alikhlash/ui/button'
-import { CalendarDays } from 'lucide-vue-next'
+import { CalendarDays } from '@lucide/vue'
 import { formatEntityName } from '@mts241alikhlash/web-shared/utils/utils'
 import type { LessonClassItem, LessonColumnActions } from '../types'
 

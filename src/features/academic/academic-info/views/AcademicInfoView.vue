@@ -8,7 +8,7 @@ import {
 } from '@mts241alikhlash/ui/card'
 import { Badge } from '@mts241alikhlash/ui/badge'
 import { Skeleton } from '@mts241alikhlash/ui/skeleton'
-import { CalendarDays, BookOpen } from 'lucide-vue-next'
+import { CalendarDays, BookOpen } from '@lucide/vue'
 import { useAcademicInfo } from '../composables/useAcademicInfo'
 
 const {

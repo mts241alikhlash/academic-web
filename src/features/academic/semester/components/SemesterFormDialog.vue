@@ -21,7 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@mts241alikhlash/ui/select'
-import { AlertCircle, Loader2 } from 'lucide-vue-next'
+import { AlertCircle, Loader2 } from '@lucide/vue'
 import { ScrollArea } from '@mts241alikhlash/ui/scroll-area'
 import {
   FormControl,

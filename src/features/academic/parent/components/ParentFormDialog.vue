@@ -37,7 +37,7 @@ import {
   SelectValue,
 } from '@mts241alikhlash/ui/select'
 import { AppCombobox } from '@mts241alikhlash/ui'
-import { AlertCircle } from 'lucide-vue-next'
+import { AlertCircle } from '@lucide/vue'
 import type { Parent, ParentSavePayload } from '../types'
 import type { ReferenceListItem as Occupation } from '@/features/academic/reference-list'
 import { useParentForm } from '../composables/useParentForm'

@@ -9,7 +9,7 @@ import {
   DialogTitle,
 } from '@mts241alikhlash/ui/dialog'
 import { Button } from '@mts241alikhlash/ui/button'
-import { CheckCircle2 } from 'lucide-vue-next'
+import { CheckCircle2 } from '@lucide/vue'
 import { computed } from 'vue'
 
 const props = defineProps<{

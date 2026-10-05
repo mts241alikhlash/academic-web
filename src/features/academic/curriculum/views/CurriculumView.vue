@@ -7,7 +7,7 @@ import { DataTable } from '@mts241alikhlash/ui'
 import { Button } from '@mts241alikhlash/ui/button'
 import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
 import { useRoleGuard } from '@/features/platform/auth'
-import { Plus } from 'lucide-vue-next'
+import { Plus } from '@lucide/vue'
 import { useRouter } from 'vue-router'
 import { onMounted, ref, watch } from 'vue'
 import {

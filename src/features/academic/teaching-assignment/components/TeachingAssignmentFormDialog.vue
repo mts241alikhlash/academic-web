@@ -37,7 +37,7 @@ import { AppCombobox } from '@mts241alikhlash/ui'
 import type { ComboboxOption } from '@mts241alikhlash/ui'
 import { Checkbox } from '@mts241alikhlash/ui/checkbox'
 import { Input } from '@mts241alikhlash/ui/input'
-import { AlertCircle } from 'lucide-vue-next'
+import { AlertCircle } from '@lucide/vue'
 import type {
   TeachingAssignment,
   TeachingAssignmentCreatePayload,

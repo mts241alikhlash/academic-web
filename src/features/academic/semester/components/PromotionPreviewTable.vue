@@ -29,7 +29,7 @@ import {
   GraduationCap,
   RotateCcw,
   Search,
-} from 'lucide-vue-next'
+} from '@lucide/vue'
 
 const props = defineProps<{
   decisions: PromotionStudentDecision[]

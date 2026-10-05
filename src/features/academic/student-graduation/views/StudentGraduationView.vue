@@ -10,7 +10,7 @@ import { Button } from '@mts241alikhlash/ui/button'
 import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
 import { Label } from '@mts241alikhlash/ui/label'
 import { useRoleGuard } from '@/features/platform/auth'
-import { Plus } from 'lucide-vue-next'
+import { Plus } from '@lucide/vue'
 import { computed, onMounted, ref, watch } from 'vue'
 
 const {

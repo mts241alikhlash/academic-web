@@ -9,7 +9,7 @@ import {
 } from '@mts241alikhlash/ui/card'
 import { DataTable } from '@mts241alikhlash/ui'
 import { Skeleton } from '@mts241alikhlash/ui/skeleton'
-import { BookOpen } from 'lucide-vue-next'
+import { BookOpen } from '@lucide/vue'
 import { toast } from 'vue-sonner'
 import { classroomApi } from '@/features/academic/classroom'
 import type { TeachingAssignment } from '@/features/academic/teaching-assignment'

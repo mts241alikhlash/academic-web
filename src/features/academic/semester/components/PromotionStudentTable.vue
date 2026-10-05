@@ -28,7 +28,7 @@ import {
   TableRow,
 } from '@mts241alikhlash/ui/table'
 import { Textarea } from '@mts241alikhlash/ui/textarea'
-import { Filter, Search, Users } from 'lucide-vue-next'
+import { Filter, Search, Users } from '@lucide/vue'
 import type {
   PromotionAction,
   PromotionRecommendationItem,

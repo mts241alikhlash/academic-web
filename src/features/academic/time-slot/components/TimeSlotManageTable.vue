@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { AlertTriangle, Loader2, Trash2 } from 'lucide-vue-next'
+import { AlertTriangle, Loader2, Trash2 } from '@lucide/vue'
 import { useTimeSlotManager } from '../composables/useTimeSlotManager'
 import { durationBetween } from '../domain/time-of-day'
 import type { EditableTimeSlotRow } from '../composables/useTimeSlotManager'

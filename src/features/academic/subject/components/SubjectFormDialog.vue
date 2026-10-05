@@ -30,7 +30,7 @@ import {
   FormLabel,
   FormMessage,
 } from '@mts241alikhlash/ui/form'
-import { AlertCircle } from 'lucide-vue-next'
+import { AlertCircle } from '@lucide/vue'
 import type { Subject, SubjectSavePayload } from '../types'
 
 const props = defineProps<{

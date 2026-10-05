@@ -3,7 +3,7 @@ import type { CalendarEventData, FilterPayload } from '../types'
 import { DataTable } from '@mts241alikhlash/ui'
 import { Button } from '@mts241alikhlash/ui/button'
 import type { Table } from '@tanstack/vue-table'
-import { Trash } from 'lucide-vue-next'
+import { Trash } from '@lucide/vue'
 import { ref } from 'vue'
 import { createCalendarColumns } from './columns'
 

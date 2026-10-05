@@ -38,7 +38,7 @@ import {
   GraduationCap,
   Loader2,
   Pencil,
-} from 'lucide-vue-next'
+} from '@lucide/vue'
 import { computed, onMounted, ref, watch } from 'vue'
 import { useAcademicSetting } from '@/features/academic/academic-setting'
 import { useSemesterList } from '../composables/useSemesterList'

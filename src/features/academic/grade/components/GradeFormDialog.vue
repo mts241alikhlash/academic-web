@@ -23,7 +23,7 @@ import {
   SelectValue,
 } from '@mts241alikhlash/ui/select'
 import { Alert, AlertDescription } from '@mts241alikhlash/ui/alert'
-import { AlertCircle, Loader2 } from 'lucide-vue-next'
+import { AlertCircle, Loader2 } from '@lucide/vue'
 import {
   FormControl,
   FormField,

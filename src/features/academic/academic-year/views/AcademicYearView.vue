@@ -17,7 +17,7 @@ import {
   AlertDialogTitle,
 } from '@mts241alikhlash/ui/alert-dialog'
 import { useRoleGuard } from '@/features/platform/auth'
-import { Plus } from 'lucide-vue-next'
+import { Plus } from '@lucide/vue'
 import { onMounted, ref, watch } from 'vue'
 
 const {

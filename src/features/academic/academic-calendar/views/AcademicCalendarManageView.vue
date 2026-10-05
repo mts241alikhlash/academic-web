@@ -5,7 +5,7 @@ import AcademicCalendarTableView from '../components/AcademicCalendarTableView.v
 import { useAcademicCalendarManageView } from '../composables/useAcademicCalendarManageView'
 import { Button } from '@mts241alikhlash/ui/button'
 import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
-import { Plus } from 'lucide-vue-next'
+import { Plus } from '@lucide/vue'
 import type { CalendarEventData } from '../types'
 
 const router = useRouter()

@@ -38,7 +38,7 @@ import {
 } from '@mts241alikhlash/ui/dialog'
 import { Textarea } from '@mts241alikhlash/ui/textarea'
 import { cn } from '@mts241alikhlash/web-shared/utils/utils'
-import { CalendarIcon } from 'lucide-vue-next'
+import { CalendarIcon } from '@lucide/vue'
 import { academicCalendarTypeApi } from '@/features/academic/academic-calendar-type/api/academicCalendarTypeApi'
 
 const props = defineProps<{

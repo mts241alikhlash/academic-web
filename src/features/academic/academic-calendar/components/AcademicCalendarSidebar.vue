@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@mts241alikhlash/ui/card'
-import { Calendar as CalendarIcon, ChevronRight, Clock } from 'lucide-vue-next'
+import { Calendar as CalendarIcon, ChevronRight, Clock } from '@lucide/vue'
 import type { CalendarEventData, EventClickInfo } from '../types'
 import { useCalendarFormat } from '../composables/useCalendarFormat'
 

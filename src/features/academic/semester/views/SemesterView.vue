@@ -19,7 +19,7 @@ import {
   AlertDialogTitle,
 } from '@mts241alikhlash/ui/alert-dialog'
 import { useRoleGuard } from '@/features/platform/auth'
-import { Copy, Plus } from 'lucide-vue-next'
+import { Copy, Plus } from '@lucide/vue'
 import { onMounted, ref, watch } from 'vue'
 import {
   suggestRollover,

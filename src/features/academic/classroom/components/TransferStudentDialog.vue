@@ -27,7 +27,7 @@ import {
   PopoverTrigger,
 } from '@mts241alikhlash/ui/popover'
 import { cn, formatEntityName } from '@mts241alikhlash/web-shared/utils/utils'
-import { Check, ChevronsUpDown, ArrowRightLeft } from 'lucide-vue-next'
+import { Check, ChevronsUpDown, ArrowRightLeft } from '@lucide/vue'
 
 const props = defineProps<{
   enrollments: ClassroomEnrollment[]
