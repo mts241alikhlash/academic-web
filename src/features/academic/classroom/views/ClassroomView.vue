@@ -4,14 +4,13 @@ import { useRouter } from 'vue-router'
 import type { Classroom } from '../types'
 import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
 import { Button } from '@mts241alikhlash/ui/button'
-import { Plus, Search } from '@lucide/vue'
-import { DataTable, ServiceUnavailable } from '@mts241alikhlash/ui'
+import { Plus } from '@lucide/vue'
+import { DataTable, ServiceUnavailable, SearchInput } from '@mts241alikhlash/ui'
 import { createClassroomColumns } from '../components/columns'
 import ClassroomFormDialog from '../components/ClassroomFormDialog.vue'
 import { useRoleGuard } from '@/features/platform/auth'
 import { useClassroomList } from '../composables/useClassroomList'
 import { watchDebounced } from '@vueuse/core'
-import { Input } from '@mts241alikhlash/ui/input'
 import {
   Select,
   SelectContent,
@@ -143,16 +142,10 @@ onMounted(async () => {
                 </SelectContent>
               </Select>
 
-              <div class="relative w-full sm:w-48 max-w-[200px]">
-                <Search
-                  class="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-muted-foreground"
-                />
-                <Input
-                  v-model="searchKeyword"
-                  placeholder="Cari kelas..."
-                  class="h-8 pl-8 w-full text-xs"
-                />
-              </div>
+              <SearchInput
+                v-model="searchKeyword"
+                label="Cari kelas"
+              />
             </div>
           </template>
         </DataTable>

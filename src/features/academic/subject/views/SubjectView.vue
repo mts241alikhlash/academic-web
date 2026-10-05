@@ -5,14 +5,13 @@ import { createSubjectColumns } from '../components/columns'
 import { useSubjectList } from '../composables/useSubjectList'
 import { useSubjectDelete } from '../composables/useSubjectDelete'
 import { useSubjectForm } from '../composables/useSubjectForm'
-import { DataTable } from '@mts241alikhlash/ui'
+import { DataTable, SearchInput } from '@mts241alikhlash/ui'
 import { Button } from '@mts241alikhlash/ui/button'
 import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
 import { useRoleGuard } from '@/features/platform/auth'
-import { Plus, Search } from '@lucide/vue'
+import { Plus } from '@lucide/vue'
 import { onMounted, ref, watch } from 'vue'
 import { watchDebounced } from '@vueuse/core'
-import { Input } from '@mts241alikhlash/ui/input'
 
 const { subjects, totalSubjects, loading, currentFilters, fetchSubjects } =
   useSubjectList()
@@ -104,16 +103,10 @@ onMounted(() => {
           @update:page-size="(limit) => fetchSubjects({ limit, page: 1 })"
         >
           <template #header-right>
-            <div class="relative w-full sm:w-48 max-w-[200px]">
-              <Search
-                class="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-muted-foreground"
-              />
-              <Input
-                v-model="searchKeyword"
-                placeholder="Cari mata pelajaran..."
-                class="h-8 pl-8 w-full text-xs"
-              />
-            </div>
+            <SearchInput
+              v-model="searchKeyword"
+              label="Cari mata pelajaran"
+            />
           </template>
         </DataTable>
 

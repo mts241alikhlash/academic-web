@@ -3,14 +3,13 @@ import type { Grade } from '../types'
 import { createGradeColumns } from '../components/columns'
 import GradeFormDialog from '../components/GradeFormDialog.vue'
 import { useGradeList } from '../composables/useGradeList'
-import { DataTable } from '@mts241alikhlash/ui'
+import { DataTable, SearchInput } from '@mts241alikhlash/ui'
 import { Button } from '@mts241alikhlash/ui/button'
 import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
-import { Plus, Search } from '@lucide/vue'
+import { Plus } from '@lucide/vue'
 import { useRoleGuard } from '@/features/platform/auth'
 import { onMounted, ref, watch } from 'vue'
 import { watchDebounced } from '@vueuse/core'
-import { Input } from '@mts241alikhlash/ui/input'
 
 const { items, totalItems, loading, currentFilters, fetchGrades, deleteGrade } =
   useGradeList()
@@ -93,16 +92,10 @@ onMounted(() => {
           @update:page-size="(limit) => fetchGrades({ limit, page: 1 })"
         >
           <template #header-right>
-            <div class="relative w-full sm:w-48 max-w-[200px]">
-              <Search
-                class="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-muted-foreground"
-              />
-              <Input
-                v-model="searchKeyword"
-                placeholder="Cari tingkat kelas..."
-                class="h-8 pl-8 w-full text-xs"
-              />
-            </div>
+            <SearchInput
+              v-model="searchKeyword"
+              label="Cari tingkat kelas"
+            />
           </template>
         </DataTable>
 
