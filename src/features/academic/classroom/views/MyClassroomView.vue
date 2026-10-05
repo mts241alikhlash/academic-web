@@ -9,7 +9,7 @@ import {
 import { Skeleton } from '@mts241alikhlash/ui/skeleton'
 import { Badge } from '@mts241alikhlash/ui/badge'
 import { DataTable } from '@mts241alikhlash/ui'
-import { School, Users } from 'lucide-vue-next'
+import { School, Users } from '@lucide/vue'
 import { toast } from 'vue-sonner'
 import { classroomApi } from '../api/classroomApi'
 import type { MyClassroom } from '../types'

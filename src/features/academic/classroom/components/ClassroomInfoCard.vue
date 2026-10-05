@@ -4,7 +4,7 @@ import { Card } from '@mts241alikhlash/ui/card'
 import { Badge } from '@mts241alikhlash/ui/badge'
 import { Button } from '@mts241alikhlash/ui/button'
 import { Separator } from '@mts241alikhlash/ui/separator'
-import { Pencil } from 'lucide-vue-next'
+import { Pencil } from '@lucide/vue'
 
 defineProps<{
   currentClassroom: Classroom | null

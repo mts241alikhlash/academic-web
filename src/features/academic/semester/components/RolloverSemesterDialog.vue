@@ -17,7 +17,7 @@ import {
   DialogTitle,
 } from '@mts241alikhlash/ui/dialog'
 import { ScrollArea } from '@mts241alikhlash/ui/scroll-area'
-import { ArrowRight, CheckCircle2, Copy, Loader2 } from 'lucide-vue-next'
+import { ArrowRight, CheckCircle2, Copy, Loader2 } from '@lucide/vue'
 import { computed, reactive, watch } from 'vue'
 import { resolveDefaultRolloverPair } from '../logic/rolloverSemesters'
 

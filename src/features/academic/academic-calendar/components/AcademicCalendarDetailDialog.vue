@@ -10,7 +10,7 @@ import {
   DialogTitle,
 } from '@mts241alikhlash/ui/dialog'
 import { Button } from '@mts241alikhlash/ui/button'
-import { Pencil } from 'lucide-vue-next'
+import { Pencil } from '@lucide/vue'
 
 const props = withDefaults(
   defineProps<{

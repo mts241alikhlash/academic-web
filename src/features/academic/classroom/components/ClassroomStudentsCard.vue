@@ -7,14 +7,7 @@ import { Button } from '@mts241alikhlash/ui/button'
 import { Badge } from '@mts241alikhlash/ui/badge'
 import { DataTable } from '@mts241alikhlash/ui'
 import { baseColumns, selectColumn } from './enrollment-columns'
-import {
-  ArrowRightLeft,
-  Plus,
-  Settings,
-  Trash2,
-  Users,
-  X,
-} from 'lucide-vue-next'
+import { ArrowRightLeft, Plus, Settings, Trash2, Users, X } from '@lucide/vue'
 
 defineProps<{
   classroomEnrollments: ClassroomEnrollment[]

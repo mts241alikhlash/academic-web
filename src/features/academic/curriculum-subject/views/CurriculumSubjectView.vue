@@ -14,7 +14,7 @@ import {
   CardDescription,
 } from '@mts241alikhlash/ui/card'
 import { useRoleGuard } from '@/features/platform/auth'
-import { ArrowLeft, Plus } from 'lucide-vue-next'
+import { ArrowLeft, Plus } from '@lucide/vue'
 import { onMounted, ref, watch, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 

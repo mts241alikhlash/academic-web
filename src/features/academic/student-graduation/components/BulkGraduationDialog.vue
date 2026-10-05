@@ -12,7 +12,7 @@ import { Button } from '@mts241alikhlash/ui/button'
 import { Label } from '@mts241alikhlash/ui/label'
 import { Input } from '@mts241alikhlash/ui/input'
 import { Checkbox } from '@mts241alikhlash/ui/checkbox'
-import { GraduationCap, Loader2 } from 'lucide-vue-next'
+import { GraduationCap, Loader2 } from '@lucide/vue'
 import { useStudentGraduation } from '../composables/useStudentGraduation'
 import type { GraduationCandidate } from '../types'
 

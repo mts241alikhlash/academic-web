@@ -50,7 +50,7 @@ import {
   SelectValue,
 } from '@mts241alikhlash/ui/select'
 import { cn } from '@mts241alikhlash/web-shared/utils/utils'
-import { AlertCircle, Check, ChevronsUpDown, Loader2 } from 'lucide-vue-next'
+import { AlertCircle, Check, ChevronsUpDown, Loader2 } from '@lucide/vue'
 
 const props = defineProps<{
   open: boolean

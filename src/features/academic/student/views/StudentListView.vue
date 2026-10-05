@@ -34,7 +34,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@mts241alikhlash/ui/dropdown-menu'
-import { ArrowLeftRight, Plus, Search, Filter } from 'lucide-vue-next'
+import { ArrowLeftRight, Plus, Search, Filter } from '@lucide/vue'
 import { toast } from 'vue-sonner'
 import { getIndonesianErrorMessage } from '@mts241alikhlash/web-shared/utils/error-handler'
 import { useRoleGuard } from '@/features/platform/auth'

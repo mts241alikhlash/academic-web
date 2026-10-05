@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from '@mts241alikhlash/ui/select'
 import { Alert, AlertDescription, AlertTitle } from '@mts241alikhlash/ui/alert'
-import { AlertCircle, ChevronRight, GraduationCap } from 'lucide-vue-next'
+import { AlertCircle, ChevronRight, GraduationCap } from '@lucide/vue'
 import { computed } from 'vue'
 
 const props = defineProps<{

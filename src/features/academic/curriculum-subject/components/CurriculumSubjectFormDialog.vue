@@ -30,7 +30,7 @@ import {
   FormMessage,
 } from '@mts241alikhlash/ui/form'
 import { Input } from '@mts241alikhlash/ui/input'
-import { AlertCircle } from 'lucide-vue-next'
+import { AlertCircle } from '@lucide/vue'
 import type { CurriculumSubject, CurriculumSubjectSavePayload } from '../types'
 
 const props = defineProps<{

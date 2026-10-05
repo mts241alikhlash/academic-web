@@ -6,7 +6,7 @@ import {
   GraduationCap,
   ListChecks,
   Users,
-} from 'lucide-vue-next'
+} from '@lucide/vue'
 
 export type {
   SubMenuItem,

@@ -24,7 +24,7 @@ import {
   TableHeader,
   TableRow,
 } from '@mts241alikhlash/ui/table'
-import { Calendar, Loader2, Pencil } from 'lucide-vue-next'
+import { Calendar, Loader2, Pencil } from '@lucide/vue'
 import { toast } from 'vue-sonner'
 import { useRoleGuard } from '@/features/platform/auth'
 import { useStudentGraduation } from '../composables/useStudentGraduation'

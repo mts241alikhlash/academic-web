@@ -10,7 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from '@mts241alikhlash/ui/table'
-import { History } from 'lucide-vue-next'
+import { History } from '@lucide/vue'
 import { ServiceUnavailable } from '@mts241alikhlash/ui'
 import {
   isServiceUnavailable,

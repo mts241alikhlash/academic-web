@@ -40,7 +40,7 @@ import {
 } from '@mts241alikhlash/ui/alert-dialog'
 import { Textarea } from '@mts241alikhlash/ui/textarea'
 import { cn } from '@mts241alikhlash/web-shared/utils/utils'
-import { CalendarIcon, ArrowLeft } from 'lucide-vue-next'
+import { CalendarIcon, ArrowLeft } from '@lucide/vue'
 import { academicCalendarTypeApi } from '@/features/academic/academic-calendar-type/api/academicCalendarTypeApi'
 
 const {

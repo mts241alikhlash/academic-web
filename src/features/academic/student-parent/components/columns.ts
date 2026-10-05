@@ -23,7 +23,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@mts241alikhlash/ui/alert-dialog'
-import { MoreHorizontal, Edit, Trash } from 'lucide-vue-next'
+import { MoreHorizontal, Edit, Trash } from '@lucide/vue'
 
 export const createStudentParentColumns = (
   actions: StudentParentColumnActions,

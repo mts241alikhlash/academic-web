@@ -3,7 +3,7 @@ import { Button } from '@mts241alikhlash/ui/button'
 import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
 import { Alert, AlertDescription } from '@mts241alikhlash/ui/alert'
 import { Badge } from '@mts241alikhlash/ui/badge'
-import { Loader2 } from 'lucide-vue-next'
+import { Loader2 } from '@lucide/vue'
 import { useRoleGuard } from '@/features/platform/auth'
 import type { useAcademicSetting } from '../composables/useAcademicSetting'
 

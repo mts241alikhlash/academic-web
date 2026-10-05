@@ -3,7 +3,7 @@ import type { ClassroomStructure } from '../types'
 import { Card } from '@mts241alikhlash/ui/card'
 import { Button } from '@mts241alikhlash/ui/button'
 import { Separator } from '@mts241alikhlash/ui/separator'
-import { Settings } from 'lucide-vue-next'
+import { Settings } from '@lucide/vue'
 import { formatEntityName } from '@mts241alikhlash/web-shared/utils/utils'
 
 const props = defineProps<{

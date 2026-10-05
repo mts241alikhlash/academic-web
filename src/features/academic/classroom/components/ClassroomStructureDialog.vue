@@ -38,7 +38,7 @@ import {
   FormMessage,
 } from '@mts241alikhlash/ui/form'
 import { cn, formatEntityName } from '@mts241alikhlash/web-shared/utils/utils'
-import { Check, ChevronsUpDown, UserCircle } from 'lucide-vue-next'
+import { Check, ChevronsUpDown, UserCircle } from '@lucide/vue'
 
 const props = defineProps<{
   open: boolean

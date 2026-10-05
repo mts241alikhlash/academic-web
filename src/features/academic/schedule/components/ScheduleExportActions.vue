@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { Button } from '@mts241alikhlash/ui/button'
-import { ImageDown, Printer } from 'lucide-vue-next'
+import { ImageDown, Printer } from '@lucide/vue'
 import { toast } from 'vue-sonner'
 import SchedulePrintSheet from './SchedulePrintSheet.vue'
 import { drawScheduleImage } from '../logic/drawScheduleImage'
