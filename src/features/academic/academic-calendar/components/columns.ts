@@ -24,11 +24,11 @@ export const createCalendarColumns = (
             }
           }) =>
             h(Checkbox, {
-              checked:
+              modelValue:
                 table.getIsAllPageRowsSelected() ||
                 (table.getIsSomePageRowsSelected() && 'indeterminate'),
-              'onUpdate:checked': (value: boolean) =>
-                table.toggleAllPageRowsSelected(!!value),
+              'onUpdate:modelValue': (value: boolean | 'indeterminate') =>
+                table.toggleAllPageRowsSelected(value === true),
               ariaLabel: 'Select all',
             }),
           cell: ({
@@ -40,9 +40,9 @@ export const createCalendarColumns = (
             }
           }) =>
             h(Checkbox, {
-              checked: row.getIsSelected(),
-              'onUpdate:checked': (value: boolean) =>
-                row.toggleSelected(!!value),
+              modelValue: row.getIsSelected(),
+              'onUpdate:modelValue': (value: boolean | 'indeterminate') =>
+                row.toggleSelected(value === true),
               ariaLabel: 'Select row',
             }),
           enableSorting: false,

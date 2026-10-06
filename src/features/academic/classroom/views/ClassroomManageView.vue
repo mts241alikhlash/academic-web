@@ -1,4 +1,5 @@
 ﻿<script setup lang="ts">
+import { BackButton } from '@mts241alikhlash/ui'
 import { computed, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import type {
@@ -12,7 +13,6 @@ import { useClassroomEnrollment } from '../composables/useClassroomEnrollment'
 import { useClassroomStructure } from '../composables/useClassroomStructure'
 import { useBreadcrumbs } from '@mts241alikhlash/web-shared/composables/useBreadcrumbs'
 import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
-import { Button } from '@mts241alikhlash/ui/button'
 import ClassroomInfoCard from '../components/ClassroomInfoCard.vue'
 import ClassroomStructureCard from '../components/ClassroomStructureCard.vue'
 import ClassroomStudentsCard from '../components/ClassroomStudentsCard.vue'
@@ -21,7 +21,6 @@ import TransferStudentDialog from '../components/TransferStudentDialog.vue'
 import ClassroomStructureDialog from '../components/ClassroomStructureDialog.vue'
 import ClassroomFormDialog from '../components/ClassroomFormDialog.vue'
 import { useRoleGuard } from '@/features/platform/auth'
-import { ArrowLeft } from '@lucide/vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -223,14 +222,10 @@ onMounted(async () => {
         class="flex flex-row items-center justify-between border-b px-6 py-5"
       >
         <div class="flex items-center gap-3">
-          <Button
-            variant="outline"
-            size="icon"
-            class="h-8 w-8"
+          <BackButton
+            label="Kembali ke daftar kelas"
             @click="router.push('/academic/classroom')"
-          >
-            <ArrowLeft class="h-4 w-4" />
-          </Button>
+          />
           <div>
             <CardTitle class="text-2xl font-bold tracking-tight">
               Kelola Kelas {{ currentClassroom?.displayName ?? '' }}

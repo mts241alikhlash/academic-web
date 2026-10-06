@@ -5,7 +5,7 @@ import AddCurriculumSubjectDialog from '../components/AddCurriculumSubjectDialog
 import { createCurriculumSubjectColumns } from '../components/columns'
 import { useCurriculumSubject } from '../composables/useCurriculumSubject'
 import { useBreadcrumbs } from '@mts241alikhlash/web-shared/composables/useBreadcrumbs'
-import { DataTable } from '@mts241alikhlash/ui'
+import { DataTable, BackButton } from '@mts241alikhlash/ui'
 import { Button } from '@mts241alikhlash/ui/button'
 import {
   Card,
@@ -14,7 +14,7 @@ import {
   CardDescription,
 } from '@mts241alikhlash/ui/card'
 import { useRoleGuard } from '@/features/platform/auth'
-import { ArrowLeft, Plus } from '@lucide/vue'
+import { Plus } from '@lucide/vue'
 import { onMounted, ref, watch, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -116,14 +116,10 @@ onMounted(async () => {
         class="flex flex-row items-center justify-between border-b px-6 py-5"
       >
         <div class="flex items-center gap-3">
-          <Button
-            variant="outline"
-            size="icon"
-            class="size-8"
+          <BackButton
+            label="Kembali ke daftar kurikulum"
             @click="router.push('/academic/curriculum')"
-          >
-            <ArrowLeft class="size-4" />
-          </Button>
+          />
           <div class="grid gap-0.5">
             <CardTitle class="text-2xl font-bold tracking-tight">
               Mata Pelajaran Kurikulum

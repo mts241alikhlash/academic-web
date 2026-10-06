@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Checkbox } from '@mts241alikhlash/ui/checkbox'
 import { ref, computed, watch } from 'vue'
 import type { AvailableStudent } from '../types'
 import { Button } from '@mts241alikhlash/ui/button'
@@ -148,15 +149,10 @@ function handleEnroll() {
           <TableHeader>
             <TableRow class="bg-muted/50 hover:bg-muted/50">
               <TableHead class="w-[50px] text-center px-4">
-                <input
-                  type="checkbox"
-                  class="size-4 rounded accent-primary cursor-pointer"
-                  :checked="allChecked"
-                  :indeterminate="someChecked"
+                <Checkbox
+                  :model-value="allChecked || (someChecked && 'indeterminate')"
                   aria-label="Pilih semua"
-                  @change="
-                    toggleAll(($event.target as HTMLInputElement).checked)
-                  "
+                  @update:model-value="(value) => toggleAll(value === true)"
                 />
               </TableHead>
               <TableHead class="w-[50px] text-center px-4"> No </TableHead>
@@ -189,16 +185,11 @@ function handleEnroll() {
                 :class="{ 'bg-primary/5': selectedIds[student.id] }"
               >
                 <TableCell class="w-[50px] text-center px-4">
-                  <input
-                    type="checkbox"
-                    class="size-4 rounded accent-primary cursor-pointer"
-                    :checked="!!selectedIds[student.id]"
+                  <Checkbox
+                    :model-value="!!selectedIds[student.id]"
                     aria-label="Pilih baris"
-                    @change="
-                      toggleStudent(
-                        student.id,
-                        ($event.target as HTMLInputElement).checked,
-                      )
+                    @update:model-value="
+                      (value) => toggleStudent(student.id, value === true)
                     "
                   />
                 </TableCell>

@@ -55,7 +55,7 @@ function supervisorName(supervisor: MyClassroom['supervisor']) {
       <Skeleton class="h-[72px] w-full rounded-2xl" />
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div class="rounded-2xl border p-5 space-y-3">
-          <Skeleton class="h-4 w-32 rounded" />
+          <Skeleton class="h-4 w-32" />
           <Skeleton class="h-px w-full" />
           <div class="space-y-2.5">
             <div
@@ -63,13 +63,13 @@ function supervisorName(supervisor: MyClassroom['supervisor']) {
               :key="i"
               class="flex justify-between"
             >
-              <Skeleton class="h-3.5 w-20 rounded" />
-              <Skeleton class="h-3.5 w-28 rounded" />
+              <Skeleton class="h-3.5 w-20" />
+              <Skeleton class="h-3.5 w-28" />
             </div>
           </div>
         </div>
         <div class="rounded-2xl border p-5 space-y-3">
-          <Skeleton class="h-4 w-32 rounded" />
+          <Skeleton class="h-4 w-32" />
           <Skeleton class="h-px w-full" />
           <div class="space-y-2.5">
             <div
@@ -77,14 +77,14 @@ function supervisorName(supervisor: MyClassroom['supervisor']) {
               :key="i"
               class="flex justify-between"
             >
-              <Skeleton class="h-3.5 w-24 rounded" />
-              <Skeleton class="h-3.5 w-32 rounded" />
+              <Skeleton class="h-3.5 w-24" />
+              <Skeleton class="h-3.5 w-32" />
             </div>
           </div>
         </div>
       </div>
       <div class="rounded-2xl border p-5 space-y-3">
-        <Skeleton class="h-4 w-28 rounded" />
+        <Skeleton class="h-4 w-28" />
         <Skeleton class="h-px w-full" />
         <div class="space-y-2">
           <Skeleton

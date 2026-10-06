@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useBreadcrumbs } from '@mts241alikhlash/web-shared/composables/useBreadcrumbs'
+import { useRoute } from 'vue-router'
+import { BackButton } from '@mts241alikhlash/ui'
 import { toast } from 'vue-sonner'
 import { getIndonesianErrorMessage } from '@mts241alikhlash/web-shared/utils/error-handler'
 import { PAGINATION } from '@mts241alikhlash/web-shared/constants/pagination'
@@ -40,10 +43,13 @@ import {
 } from '@mts241alikhlash/ui/alert-dialog'
 import { Textarea } from '@mts241alikhlash/ui/textarea'
 import { cn } from '@mts241alikhlash/web-shared/utils/utils'
-import { CalendarIcon, ArrowLeft } from '@lucide/vue'
+import { CalendarIcon } from '@lucide/vue'
 import { academicCalendarTypeApi } from '@/features/academic/academic-calendar-type/api/academicCalendarTypeApi'
 
+const route = useRoute()
+
 const {
+  eventTitle,
   isEditMode,
   isLoadingEvent,
   isSaving,
@@ -72,6 +78,13 @@ onMounted(async () => {
     )
   }
 })
+
+useBreadcrumbs(() => {
+  const name = isEditMode.value ? eventTitle.value : null
+  if (!name) return null
+  const trail = route.meta.breadcrumbs ?? []
+  return [...trail.slice(0, -1), { title: name }]
+})
 </script>
 
 <template>
@@ -83,14 +96,10 @@ onMounted(async () => {
         class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b px-6 py-5 shrink-0 gap-4"
       >
         <div class="flex items-center gap-3">
-          <Button
-            variant="outline"
-            size="icon"
-            class="h-8 w-8 shrink-0"
+          <BackButton
+            label="Kembali ke manajemen kalender"
             @click="onCancel"
-          >
-            <ArrowLeft class="h-4 w-4" />
-          </Button>
+          />
           <div>
             <CardTitle class="text-2xl font-bold tracking-tight">
               {{

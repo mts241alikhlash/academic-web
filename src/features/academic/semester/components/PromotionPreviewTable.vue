@@ -259,7 +259,7 @@ const summary = computed(() => {
               <TableCell class="text-center py-3">
                 <div class="flex items-center justify-center gap-1.5">
                   <Skeleton class="h-5 w-12 rounded-full" />
-                  <Skeleton class="size-3 rounded" />
+                  <Skeleton class="size-3" />
                   <Skeleton class="h-5 w-14 rounded-full" />
                 </div>
               </TableCell>

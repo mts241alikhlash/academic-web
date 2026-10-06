@@ -102,6 +102,8 @@ export function useCalendarFormPage() {
     return format(new Date(dv.toString()), 'dd MMM yyyy', { locale: idLocale })
   }
 
+  const eventTitle = ref('')
+
   const dateRangeLabel = computed(() => {
     const s = dateRangeValue.value.start
     const e = dateRangeValue.value.end
@@ -112,6 +114,7 @@ export function useCalendarFormPage() {
   })
 
   function populateForm(data: CalendarEventData) {
+    eventTitle.value = data.title
     const activeYearId = activeAcademicYear.value?.id ?? ''
     setValues({
       title: data.title,
@@ -236,6 +239,7 @@ export function useCalendarFormPage() {
   }
 
   return {
+    eventTitle,
     isEditMode,
     isLoadingEvent,
     isSaving,

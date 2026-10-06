@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { BackButton } from '@mts241alikhlash/ui'
 import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import AcademicCalendarTableView from '../components/AcademicCalendarTableView.vue'
@@ -47,7 +48,11 @@ onMounted(() => {
       <CardHeader
         class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b px-6 py-5 gap-4"
       >
-        <div>
+        <div class="flex items-center gap-3">
+          <BackButton
+            label="Kembali ke kalender pendidikan"
+            @click="router.push('/academic/education-calendar')"
+          />
           <CardTitle class="text-2xl font-bold tracking-tight">
             Manajemen Kalender
           </CardTitle>
