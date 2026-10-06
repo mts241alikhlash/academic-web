@@ -94,9 +94,9 @@ function handleSave() {
           >
             <Checkbox
               :id="`holiday-${day.value}`"
-              :checked="draft.includes(day.value)"
+              :model-value="draft.includes(day.value)"
               :disabled="isSaving"
-              @update:checked="emit('toggle', day.value)"
+              @update:model-value="emit('toggle', day.value)"
             />
             <span class="text-sm font-medium text-foreground">{{
               day.label

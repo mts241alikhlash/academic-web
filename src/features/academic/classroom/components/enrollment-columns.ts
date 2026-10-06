@@ -1,3 +1,4 @@
+import { Checkbox } from '@mts241alikhlash/ui/checkbox'
 import { h } from 'vue'
 import type { ColumnDef } from '@tanstack/vue-table'
 import type { ClassroomEnrollment } from '../types'
@@ -59,21 +60,20 @@ export const baseColumns: ColumnDef<ClassroomEnrollment>[] = [
 export const selectColumn: ColumnDef<ClassroomEnrollment> = {
   id: 'select',
   header: ({ table }) =>
-    h('input', {
-      type: 'checkbox',
-      checked: table.getIsAllPageRowsSelected(),
-      indeterminate: table.getIsSomePageRowsSelected(),
-      onChange: (e: Event) =>
-        table.toggleAllPageRowsSelected((e.target as HTMLInputElement).checked),
-      class: 'h-4 w-4 rounded border-gray-300 cursor-pointer',
+    h(Checkbox, {
+      modelValue:
+        table.getIsAllPageRowsSelected() ||
+        (table.getIsSomePageRowsSelected() && 'indeterminate'),
+      'onUpdate:modelValue': (value: boolean | 'indeterminate') =>
+        table.toggleAllPageRowsSelected(value === true),
+      ariaLabel: 'Pilih semua',
     }),
   cell: ({ row }) =>
-    h('input', {
-      type: 'checkbox',
-      checked: row.getIsSelected(),
-      onChange: (e: Event) =>
-        row.toggleSelected((e.target as HTMLInputElement).checked),
-      class: 'h-4 w-4 rounded border-gray-300 cursor-pointer',
+    h(Checkbox, {
+      modelValue: row.getIsSelected(),
+      'onUpdate:modelValue': (value: boolean | 'indeterminate') =>
+        row.toggleSelected(value === true),
+      ariaLabel: 'Pilih baris',
     }),
   enableSorting: false,
   enableHiding: false,

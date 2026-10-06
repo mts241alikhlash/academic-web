@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Checkbox } from '@mts241alikhlash/ui/checkbox'
 import { ref, computed, watch } from 'vue'
 import { useCurriculumSubject } from '../composables/useCurriculumSubject'
 import { Button } from '@mts241alikhlash/ui/button'
@@ -143,15 +144,10 @@ function handleSave() {
           <TableHeader>
             <TableRow class="bg-muted/50 hover:bg-muted/50">
               <TableHead class="w-[50px] text-center px-4">
-                <input
-                  type="checkbox"
-                  class="size-4 rounded accent-primary cursor-pointer"
-                  :checked="allChecked"
-                  :indeterminate="someChecked"
+                <Checkbox
+                  :model-value="allChecked || (someChecked && 'indeterminate')"
                   aria-label="Pilih semua"
-                  @change="
-                    toggleAll(($event.target as HTMLInputElement).checked)
-                  "
+                  @update:model-value="(value) => toggleAll(value === true)"
                 />
               </TableHead>
               <TableHead class="w-[50px] text-center px-4"> No </TableHead>
@@ -182,16 +178,11 @@ function handleSave() {
                   class="w-[50px] text-center px-4"
                   @click.stop
                 >
-                  <input
-                    type="checkbox"
-                    class="size-4 rounded accent-primary cursor-pointer"
-                    :checked="!!selectedIds[subject.id]"
+                  <Checkbox
+                    :model-value="!!selectedIds[subject.id]"
                     aria-label="Pilih baris"
-                    @change="
-                      toggleSubject(
-                        subject.id,
-                        ($event.target as HTMLInputElement).checked,
-                      )
+                    @update:model-value="
+                      (value) => toggleSubject(subject.id, value === true)
                     "
                   />
                 </TableCell>

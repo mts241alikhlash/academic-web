@@ -320,7 +320,7 @@ function confirmSave() {
                     <label
                       v-for="opt in classroomOptions"
                       :key="opt.value"
-                      class="flex items-center gap-2 rounded px-1.5 py-1 text-sm hover:bg-muted/60 cursor-pointer"
+                      class="flex items-center gap-2 rounded-sm px-1.5 py-1 text-sm hover:bg-muted/60 cursor-pointer"
                     >
                       <Checkbox
                         :model-value="(value as string[]).includes(opt.value)"

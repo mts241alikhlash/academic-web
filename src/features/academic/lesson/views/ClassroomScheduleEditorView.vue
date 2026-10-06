@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { BackButton } from '@mts241alikhlash/ui'
 import { useLessonEditor } from '../composables/useLessonEditor'
 import type { ScheduleTableRow } from '../types'
 import { useBreadcrumbs } from '@mts241alikhlash/web-shared/composables/useBreadcrumbs'
@@ -34,7 +35,7 @@ import {
 } from '@mts241alikhlash/ui/tooltip'
 import { Badge } from '@mts241alikhlash/ui/badge'
 import { formatEntityName } from '@mts241alikhlash/web-shared/utils/utils'
-import { ArrowLeft, Plus, Save, Trash2, Lock } from '@lucide/vue'
+import { Plus, Save, Trash2, Lock } from '@lucide/vue'
 import { computed, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -176,15 +177,10 @@ onMounted(fetchData)
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
       <CardHeader class="flex flex-row items-center gap-3 border-b px-6 py-5">
-        <Button
-          variant="ghost"
-          size="icon"
-          class="shrink-0"
-          aria-label="Kembali"
+        <BackButton
+          label="Kembali ke jadwal pelajaran"
           @click="router.push('/learning/lesson')"
-        >
-          <ArrowLeft class="size-4" />
-        </Button>
+        />
         <div class="flex-1 flex flex-col gap-1">
           <CardTitle class="text-2xl font-bold tracking-tight">
             Jadwal Pelajaran

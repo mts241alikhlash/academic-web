@@ -368,7 +368,7 @@ function toggleAllVisible() {
               :key="i"
             >
               <TableCell class="px-3">
-                <Skeleton class="size-4 rounded" />
+                <Skeleton class="size-4" />
               </TableCell>
               <TableCell class="text-center py-3">
                 <Skeleton class="h-3.5 w-20 mx-auto" />

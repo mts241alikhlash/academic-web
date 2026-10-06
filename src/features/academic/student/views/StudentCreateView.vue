@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+import { BackButton } from '@mts241alikhlash/ui'
 import { Check } from '@lucide/vue'
 import { Button } from '@mts241alikhlash/ui/button'
 import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
@@ -15,6 +17,8 @@ import StudentProfileStep from '../components/create/StudentProfileStep.vue'
 import StudentAcademicStep from '../components/create/StudentAcademicStep.vue'
 import StudentParentStep from '../components/create/StudentParentStep.vue'
 import StudentReviewStep from '../components/create/StudentReviewStep.vue'
+
+const router = useRouter()
 
 const {
   steps,
@@ -45,7 +49,13 @@ const {
     <Card
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4 py-0"
     >
-      <CardHeader class="border-b px-6 pt-5! pb-5!">
+      <CardHeader
+        class="flex flex-row items-center gap-3 border-b px-6 pt-5! pb-5!"
+      >
+        <BackButton
+          label="Kembali ke daftar siswa"
+          @click="router.push('/student')"
+        />
         <CardTitle class="text-2xl font-bold tracking-tight">
           Tambah Siswa Baru
         </CardTitle>
