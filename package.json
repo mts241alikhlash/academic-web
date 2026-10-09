@@ -6,7 +6,7 @@
     "node": ">=24.21.0 <25",
     "pnpm": ">=11.25.0 <12"
   },
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "241 Academic: academic web app (curriculum, timetable, classrooms, enrolment)",
   "type": "module",
   "scripts": {
