@@ -162,12 +162,12 @@ export function drawScheduleImage(sheet: ScheduleSheet): string | null {
 
     row.cells.forEach((cell, i) => {
       if (!cell.title) return
-      const centre = columnX[2 + i] + DAY_WIDTH / 2
+      const center = columnX[2 + i] + DAY_WIDTH / 2
 
       if (row.isInterruption || cell.isInterruption) {
         ctx.fillStyle = BAND_INK
         ctx.font = `600 11px ${FONT}`
-        ctx.fillText(fit(ctx, cell.title, DAY_WIDTH - 12), centre, middle)
+        ctx.fillText(fit(ctx, cell.title, DAY_WIDTH - 12), center, middle)
         return
       }
 
@@ -176,7 +176,7 @@ export function drawScheduleImage(sheet: ScheduleSheet): string | null {
       ctx.font = `${isFree ? 400 : 600} 12px ${FONT}`
       ctx.fillText(
         fit(ctx, cell.title, DAY_WIDTH - 12),
-        centre,
+        center,
         cell.subtitle ? middle - 4 : middle,
       )
 
@@ -185,7 +185,7 @@ export function drawScheduleImage(sheet: ScheduleSheet): string | null {
         ctx.font = `400 10px ${FONT}`
         ctx.fillText(
           fit(ctx, cell.subtitle, DAY_WIDTH - 12),
-          centre,
+          center,
           middle + 11,
         )
       }

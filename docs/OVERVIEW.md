@@ -114,7 +114,7 @@ large import look like it had half worked:
 1. **Every row went in one request.** `buildResolveDecisions` submits SUCCESS
    rows as well as conflicts, and student-service processes them **serially**,
    each row is a bcrypt hash, a `POST /accounts` to identity-service, a local
-   transaction and an enrolment. 188 rows is a single request running for a
+   transaction and an enrollment. 188 rows is a single request running for a
    minute or more, and the JSON body is close to Express's 100 kb default.
 2. **A failed row was a number.** `processBulkImportConflicts` catches per row,
    counts `failed`, and still answers **200**. The screen showed one sample

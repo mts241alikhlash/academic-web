@@ -2,7 +2,7 @@
 
 The Vue 3 + Vite frontend for **241 Academic** — academic structure,
 curriculum, timetable, classrooms, and the student register (students,
-parents, enrolment, graduation). Part of the 241 Apps school platform.
+parents, enrollment, graduation). Part of the 241 Apps school platform.
 
 Shared UI and utilities come from the published `@mts241alikhlash/ui` and
 `@mts241alikhlash/web-shared` packages (GitHub Packages) — never copied or
