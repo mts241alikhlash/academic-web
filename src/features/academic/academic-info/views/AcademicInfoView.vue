@@ -34,18 +34,19 @@ onMounted(init)
 <template>
   <div class="p-4 md:p-6 lg:p-8 space-y-6">
     <Card
+      gap="none"
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader class="flex flex-row items-center gap-3 border-b px-6 py-5">
-        <BookOpen class="size-5 text-primary" />
-        <div>
-          <CardTitle class="text-xl font-bold tracking-tight">
-            Jadwal Hari Ini
-          </CardTitle>
-          <p class="text-sm text-muted-foreground mt-0.5">{{ todayLabel }}</p>
+      <CardHeader standard>
+        <div class="flex items-center gap-3">
+          <BookOpen class="size-5 text-primary" />
+          <div>
+            <CardTitle size="md"> Jadwal Hari Ini </CardTitle>
+            <p class="text-sm text-muted-foreground mt-0.5">{{ todayLabel }}</p>
+          </div>
         </div>
       </CardHeader>
-      <CardContent class="p-6">
+      <CardContent variant="standard">
         <div
           v-if="isLoadingSchedule"
           class="space-y-3"
@@ -100,15 +101,16 @@ onMounted(init)
 
     <div class="grid gap-6">
       <Card
+        gap="none"
         class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
       >
-        <CardHeader class="flex flex-row items-center gap-3 border-b px-6 py-5">
-          <CalendarDays class="size-5 text-primary" />
-          <CardTitle class="text-xl font-bold tracking-tight">
-            Kegiatan Mendatang
-          </CardTitle>
+        <CardHeader standard>
+          <div class="flex items-center gap-3">
+            <CalendarDays class="size-5 text-primary" />
+            <CardTitle size="md"> Kegiatan Mendatang </CardTitle>
+          </div>
         </CardHeader>
-        <CardContent class="p-6">
+        <CardContent variant="standard">
           <div
             v-if="isLoadingEvents"
             class="space-y-3"

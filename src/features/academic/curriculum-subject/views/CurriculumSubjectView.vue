@@ -12,6 +12,7 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
+  CardContent,
 } from '@mts241alikhlash/ui/card'
 import { useRoleGuard } from '@/features/platform/auth'
 import { Plus } from '@lucide/vue'
@@ -110,20 +111,17 @@ onMounted(async () => {
 <template>
   <div class="p-4 md:p-6 lg:p-8">
     <Card
+      gap="none"
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader
-        class="flex flex-row items-center justify-between border-b px-6 py-5"
-      >
+      <CardHeader standard>
         <div class="flex items-center gap-3">
           <BackButton
             label="Kembali ke daftar kurikulum"
             @click="router.push('/academic/curriculum')"
           />
           <div class="grid gap-0.5">
-            <CardTitle class="text-2xl font-bold tracking-tight">
-              Mata Pelajaran Kurikulum
-            </CardTitle>
+            <CardTitle size="lg"> Mata Pelajaran Kurikulum </CardTitle>
             <CardDescription v-if="curriculumName">
               Kurikulum: {{ curriculumName }} ({{ curriculumAcademicYear }})
             </CardDescription>
@@ -138,7 +136,10 @@ onMounted(async () => {
         </Button>
       </CardHeader>
 
-      <div class="p-6 space-y-6">
+      <CardContent
+        variant="standard"
+        class="space-y-6"
+      >
         <DataTable
           :columns="tableColumns"
           :data="items"
@@ -165,7 +166,7 @@ onMounted(async () => {
           :saving="isSaving"
           @save="handleBulkSave"
         />
-      </div>
+      </CardContent>
     </Card>
   </div>
 </template>

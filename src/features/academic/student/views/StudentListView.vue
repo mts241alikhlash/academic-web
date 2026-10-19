@@ -11,7 +11,12 @@ import { useRouter } from 'vue-router'
 import { useStudent } from '../composables/useStudent'
 import { useStudentImportExport } from '../composables/useStudentImportExport'
 import { Button } from '@mts241alikhlash/ui/button'
-import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from '@mts241alikhlash/ui/card'
 import {
   Select,
   SelectContent,
@@ -162,15 +167,12 @@ onMounted(async () => {
 <template>
   <div class="p-4 md:p-6 lg:p-8">
     <Card
+      gap="none"
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader
-        class="flex flex-row items-center justify-between border-b px-6 py-5 gap-4"
-      >
+      <CardHeader standard>
         <div>
-          <CardTitle class="text-xl sm:text-2xl font-bold tracking-tight">
-            Daftar Siswa
-          </CardTitle>
+          <CardTitle size="lg"> Daftar Siswa </CardTitle>
         </div>
         <div class="flex items-center gap-2">
           <div class="hidden sm:flex items-center gap-2">
@@ -229,7 +231,10 @@ onMounted(async () => {
           </div>
         </div>
       </CardHeader>
-      <div class="p-6 pt-1">
+      <CardContent
+        variant="standard"
+        class="pt-1"
+      >
         <div class="mb-6">
           <div class="hidden lg:flex lg:flex-row lg:items-center gap-3">
             <Select
@@ -311,7 +316,7 @@ onMounted(async () => {
             />
           </template>
         </DataTable>
-      </div>
+      </CardContent>
     </Card>
   </div>
 

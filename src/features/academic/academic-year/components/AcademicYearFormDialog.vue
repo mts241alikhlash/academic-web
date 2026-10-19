@@ -25,13 +25,7 @@ import {
   AlertDialogTitle,
 } from '@mts241alikhlash/ui/alert-dialog'
 import { Alert, AlertDescription } from '@mts241alikhlash/ui/alert'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FormField, FloatingField } from '@mts241alikhlash/ui/form'
 import type { AcademicYear } from '../types'
 
 const props = defineProps<{
@@ -83,38 +77,29 @@ const academicYearForm = useAcademicYearForm({
           class="space-y-4 px-6 py-4"
           @submit.prevent="academicYearForm.onSubmit"
         >
-          <FormField
+          <FloatingField
             v-slot="{ componentField }"
             name="name"
+            label="Nama Tahun Ajaran"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Nama Tahun Ajaran
-                <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <FormControl>
-                <Input
-                  placeholder="Contoh: 2024/2025"
-                  v-bind="componentField"
-                />
+                <Input v-bind="componentField" />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ componentField }"
             name="startYear"
+            label="Tahun Dimulai"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Tahun Dimulai
-                <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <FormControl>
                 <Input
                   type="number"
-                  placeholder="Contoh: 2024"
                   min="1900"
                   max="2999"
                   v-bind="componentField"
@@ -125,9 +110,8 @@ const academicYearForm = useAcademicYearForm({
                   "
                 />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
           <FormField
             v-slot="{ value, handleChange }"

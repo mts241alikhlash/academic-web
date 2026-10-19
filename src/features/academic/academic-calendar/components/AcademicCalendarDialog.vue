@@ -6,13 +6,7 @@ import { ref, onMounted } from 'vue'
 import type { CalendarEventData, CalendarSavePayload } from '../types'
 import { useCalendarDialogForm } from '../composables/useCalendarDialogForm'
 import { Button } from '@mts241alikhlash/ui/button'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FormField, FloatingField } from '@mts241alikhlash/ui/form'
 import { Input } from '@mts241alikhlash/ui/input'
 import {
   Popover,
@@ -118,29 +112,28 @@ onMounted(async () => {
       >
         <ScrollArea class="flex-1 min-h-0">
           <div class="flex flex-col gap-5 p-6">
-            <FormField
+            <FloatingField
               v-slot="{ componentField }"
               name="title"
+              label="Nama Agenda"
             >
-              <FormItem>
-                <FormLabel>Nama Agenda</FormLabel>
+              <div class="content-start">
                 <FormControl>
-                  <Input
-                    v-bind="componentField"
-                    placeholder="Masukkan nama agenda..."
-                  />
+                  <Input v-bind="componentField" />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
 
-            <FormField
-              v-slot="{ componentField }"
+            <FloatingField
+              v-slot="{ value, handleChange }"
               name="typeId"
+              label="Kategori"
             >
-              <FormItem>
-                <FormLabel>Kategori</FormLabel>
-                <Select v-bind="componentField">
+              <div class="content-start">
+                <Select
+                  :model-value="value"
+                  @update:model-value="handleChange"
+                >
                   <FormControl>
                     <SelectTrigger class="w-full">
                       <SelectValue placeholder="Pilih Kategori" />
@@ -156,9 +149,8 @@ onMounted(async () => {
                     </SelectItem>
                   </SelectContent>
                 </Select>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
 
             <FormField name="startDate">
               <FormItem class="flex flex-col">
@@ -203,70 +195,53 @@ onMounted(async () => {
             </FormField>
 
             <div class="grid grid-cols-2 gap-3">
-              <FormField
+              <FloatingField
                 v-slot="{ componentField }"
                 name="startTime"
+                label="Jam mulai (Opsional)"
+                always-float
               >
-                <FormItem>
-                  <FormLabel
-                    >Jam mulai
-                    <span class="text-muted-foreground font-normal"
-                      >(Opsional)</span
-                    ></FormLabel
-                  >
+                <div class="content-start">
                   <FormControl>
                     <Input
                       v-bind="componentField"
                       type="time"
                     />
                   </FormControl>
-                  <FormMessage />
-                </FormItem>
-              </FormField>
+                </div>
+              </FloatingField>
 
-              <FormField
+              <FloatingField
                 v-slot="{ componentField }"
                 name="endTime"
+                label="Jam selesai (Opsional)"
+                always-float
               >
-                <FormItem>
-                  <FormLabel
-                    >Jam selesai
-                    <span class="text-muted-foreground font-normal"
-                      >(Opsional)</span
-                    ></FormLabel
-                  >
+                <div class="content-start">
                   <FormControl>
                     <Input
                       v-bind="componentField"
                       type="time"
                     />
                   </FormControl>
-                  <FormMessage />
-                </FormItem>
-              </FormField>
+                </div>
+              </FloatingField>
             </div>
 
-            <FormField
+            <FloatingField
               v-slot="{ componentField }"
               name="description"
+              label="Deskripsi (Opsional)"
             >
-              <FormItem>
-                <FormLabel
-                  >Deskripsi
-                  <span class="text-muted-foreground font-normal"
-                    >(Opsional)</span
-                  ></FormLabel
-                >
+              <div class="content-start">
                 <FormControl>
                   <Textarea
                     v-bind="componentField"
-                    placeholder="Masukkan deskripsi agenda..."
                     class="resize-none min-h-[80px]"
                   />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
           </div>
         </ScrollArea>
 

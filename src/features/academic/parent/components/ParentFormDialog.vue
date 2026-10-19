@@ -21,13 +21,7 @@ import {
   DialogTitle,
 } from '@mts241alikhlash/ui/dialog'
 import { ScrollArea } from '@mts241alikhlash/ui/scroll-area'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FormField, FloatingField } from '@mts241alikhlash/ui/form'
 import { Input } from '@mts241alikhlash/ui/input'
 import {
   Select,
@@ -125,79 +119,64 @@ function confirmSave() {
             <AlertDescription>{{ formError }}</AlertDescription>
           </Alert>
 
-          <FormField
+          <FloatingField
             v-slot="{ componentField }"
             name="name"
+            label="Nama Lengkap"
+            required
           >
-            <FormItem>
-              <FormLabel>
-                Nama Lengkap <span class="text-destructive">*</span>
-              </FormLabel>
+            <div class="content-start">
               <FormControl>
-                <Input
-                  v-bind="componentField"
-                  placeholder="Contoh: Budi Santoso"
-                />
+                <Input v-bind="componentField" />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ componentField }"
             name="nik"
+            label="NIK"
+            required
           >
-            <FormItem>
-              <FormLabel>
-                NIK <span class="text-destructive">*</span>
-              </FormLabel>
+            <div class="content-start">
               <FormControl>
                 <Input
                   v-bind="componentField"
-                  placeholder="16 digit NIK"
                   maxlength="16"
                 />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
           <div class="grid grid-cols-2 gap-3">
-            <FormField
+            <FloatingField
               v-slot="{ componentField }"
               name="birthPlace"
+              label="Tempat Lahir"
+              required
             >
-              <FormItem>
-                <FormLabel>
-                  Tempat Lahir <span class="text-destructive">*</span>
-                </FormLabel>
+              <div class="content-start">
                 <FormControl>
-                  <Input
-                    v-bind="componentField"
-                    placeholder="Contoh: Jakarta"
-                  />
+                  <Input v-bind="componentField" />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
 
-            <FormField
+            <FloatingField
               v-slot="{ componentField }"
               name="birthDate"
+              label="Tanggal Lahir"
+              required
             >
-              <FormItem>
-                <FormLabel>
-                  Tanggal Lahir <span class="text-destructive">*</span>
-                </FormLabel>
+              <div class="content-start">
                 <FormControl>
                   <Input
                     type="date"
                     v-bind="componentField"
                   />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
           </div>
 
           <FormField
@@ -221,12 +200,12 @@ function confirmSave() {
             </FormItem>
           </FormField>
 
-          <FormField
+          <FloatingField
             v-slot="{ value, handleChange }"
             name="income"
+            label="Penghasilan Bulanan"
           >
-            <FormItem>
-              <FormLabel>Penghasilan Bulanan</FormLabel>
+            <div class="content-start">
               <FormControl>
                 <Select
                   :model-value="value"
@@ -246,42 +225,35 @@ function confirmSave() {
                   </SelectContent>
                 </Select>
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ componentField }"
             name="phone"
+            label="No. Telepon"
           >
-            <FormItem>
-              <FormLabel>No. Telepon</FormLabel>
+            <div class="content-start">
               <FormControl>
-                <Input
-                  v-bind="componentField"
-                  placeholder="Contoh: 081234567890 (opsional)"
-                />
+                <Input v-bind="componentField" />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ componentField }"
             name="email"
+            label="Email"
           >
-            <FormItem>
-              <FormLabel>Email</FormLabel>
+            <div class="content-start">
               <FormControl>
                 <Input
                   type="email"
                   v-bind="componentField"
-                  placeholder="Contoh: orangtua@email.com (opsional)"
                 />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
         </form>
       </ScrollArea>
 

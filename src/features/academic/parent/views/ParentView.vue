@@ -5,7 +5,12 @@ import { DataTable, SearchInput } from '@mts241alikhlash/ui'
 import { AppCombobox } from '@mts241alikhlash/ui'
 import type { ComboboxOption } from '@mts241alikhlash/ui'
 import { Button } from '@mts241alikhlash/ui/button'
-import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from '@mts241alikhlash/ui/card'
 import { Label } from '@mts241alikhlash/ui/label'
 import { Plus } from '@lucide/vue'
 import { useParent } from '../composables/useParent'
@@ -103,14 +108,11 @@ onMounted(async () => {
 <template>
   <div class="p-4 md:p-6 lg:p-8">
     <Card
+      gap="none"
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader
-        class="flex flex-row items-center justify-between border-b px-6 py-5"
-      >
-        <CardTitle class="text-2xl font-bold tracking-tight">
-          Data Orang Tua
-        </CardTitle>
+      <CardHeader standard>
+        <CardTitle size="lg"> Data Orang Tua </CardTitle>
         <Button
           v-if="can('parents.create')"
           @click="isAddModalOpen = true"
@@ -120,7 +122,10 @@ onMounted(async () => {
         </Button>
       </CardHeader>
 
-      <div class="p-6 space-y-6">
+      <CardContent
+        variant="standard"
+        class="space-y-6"
+      >
         <div class="rounded-lg border bg-muted/20 p-4 max-w-md">
           <div class="grid gap-2">
             <Label>Pekerjaan</Label>
@@ -162,7 +167,7 @@ onMounted(async () => {
           :occupations="occupations"
           @save="handleSaveParent"
         />
-      </div>
+      </CardContent>
     </Card>
   </div>
 </template>

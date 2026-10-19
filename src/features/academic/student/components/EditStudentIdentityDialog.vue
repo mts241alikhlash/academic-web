@@ -13,13 +13,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@mts241alikhlash/ui/dialog'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FloatingField } from '@mts241alikhlash/ui/form'
 import { Input } from '@mts241alikhlash/ui/input'
 import { ScrollArea } from '@mts241alikhlash/ui/scroll-area'
 import type { StudentUpdatePayload, StudentIdentityData } from '../types'
@@ -115,39 +109,35 @@ const onSubmit = form.handleSubmit(async (values) => {
         <ScrollArea class="flex-1 min-h-0">
           <div class="p-6">
             <div class="grid gap-5 md:grid-cols-2">
-              <FormField
+              <FloatingField
                 v-slot="{ componentField }"
                 name="nis"
+                label="NIS"
               >
-                <FormItem class="content-start">
-                  <FormLabel>NIS</FormLabel>
+                <div class="content-start">
                   <FormControl>
                     <Input
-                      placeholder="Nomor Induk Siswa"
                       maxlength="50"
                       v-bind="componentField"
                     />
                   </FormControl>
-                  <FormMessage />
-                </FormItem>
-              </FormField>
+                </div>
+              </FloatingField>
 
-              <FormField
+              <FloatingField
                 v-slot="{ componentField }"
                 name="nisn"
+                label="NISN"
               >
-                <FormItem class="content-start">
-                  <FormLabel>NISN</FormLabel>
+                <div class="content-start">
                   <FormControl>
                     <Input
-                      placeholder="Nomor Induk Siswa Nasional"
                       maxlength="50"
                       v-bind="componentField"
                     />
                   </FormControl>
-                  <FormMessage />
-                </FormItem>
-              </FormField>
+                </div>
+              </FloatingField>
             </div>
           </div>
         </ScrollArea>

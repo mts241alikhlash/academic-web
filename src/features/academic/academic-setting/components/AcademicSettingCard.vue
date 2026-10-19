@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { Button } from '@mts241alikhlash/ui/button'
-import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from '@mts241alikhlash/ui/card'
 import { Alert, AlertDescription } from '@mts241alikhlash/ui/alert'
 import { Badge } from '@mts241alikhlash/ui/badge'
 import { Loader2 } from '@lucide/vue'
@@ -23,13 +28,12 @@ const { can } = useRoleGuard()
 <template>
   <div class="p-4 md:p-6 lg:p-8">
     <Card
+      gap="none"
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader
-        class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b px-6 py-5 gap-4"
-      >
+      <CardHeader standard>
         <div class="flex items-center gap-2.5">
-          <CardTitle class="text-2xl font-bold tracking-tight">
+          <CardTitle size="lg">
             {{ title }}
           </CardTitle>
           <Badge
@@ -76,7 +80,10 @@ const { can } = useRoleGuard()
         </div>
       </CardHeader>
 
-      <div class="p-6 md:p-8 space-y-6">
+      <CardContent
+        variant="standard"
+        class="md:p-8 space-y-6"
+      >
         <div
           v-if="setting.loading.value"
           class="flex flex-col items-center justify-center py-20 space-y-3 text-muted-foreground"
@@ -102,7 +109,7 @@ const { can } = useRoleGuard()
             <AlertDescription>{{ setting.formError.value }}</AlertDescription>
           </Alert>
         </template>
-      </div>
+      </CardContent>
     </Card>
   </div>
 </template>

@@ -23,7 +23,12 @@ import {
   TableRow,
 } from '@mts241alikhlash/ui/table'
 import { Button } from '@mts241alikhlash/ui/button'
-import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from '@mts241alikhlash/ui/card'
 import {
   Select,
   SelectContent,
@@ -275,17 +280,17 @@ onMounted(async () => {
 <template>
   <div class="p-4 md:p-6 lg:p-8">
     <Card
+      gap="none"
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader
-        class="flex flex-row items-center justify-between border-b px-6 py-5"
-      >
-        <CardTitle class="text-2xl font-bold tracking-tight">
-          Kenaikan Kelas
-        </CardTitle>
+      <CardHeader standard>
+        <CardTitle size="lg"> Kenaikan Kelas </CardTitle>
       </CardHeader>
 
-      <div class="p-6 space-y-4">
+      <CardContent
+        variant="standard"
+        class="space-y-4"
+      >
         <div
           v-if="!isChoosingYears"
           class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-xl border bg-muted/20 px-4 py-3"
@@ -495,7 +500,7 @@ onMounted(async () => {
             Proses Kenaikan
           </Button>
         </div>
-      </div>
+      </CardContent>
     </Card>
   </div>
 

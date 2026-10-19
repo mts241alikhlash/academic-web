@@ -23,13 +23,7 @@ import {
   DialogTitle,
 } from '@mts241alikhlash/ui/dialog'
 import { ScrollArea } from '@mts241alikhlash/ui/scroll-area'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FormField, FloatingField } from '@mts241alikhlash/ui/form'
 import { Input } from '@mts241alikhlash/ui/input'
 import { Textarea } from '@mts241alikhlash/ui/textarea'
 import { AppCombobox } from '@mts241alikhlash/ui'
@@ -237,12 +231,12 @@ function confirmSave() {
             </FormItem>
           </FormField>
 
-          <FormField
+          <FloatingField
             v-slot="{ value, handleChange }"
             name="graduationDate"
+            label="Tanggal Lulus"
           >
-            <FormItem>
-              <FormLabel>Tanggal Lulus</FormLabel>
+            <div class="content-start">
               <FormControl>
                 <Input
                   :model-value="value"
@@ -250,43 +244,38 @@ function confirmSave() {
                   @update:model-value="(val) => handleChange(val)"
                 />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ value, handleChange }"
             name="certificateNo"
+            label="Nomor Ijazah"
           >
-            <FormItem>
-              <FormLabel>Nomor Ijazah</FormLabel>
+            <div class="content-start">
               <FormControl>
                 <Input
                   :model-value="value"
-                  placeholder="Masukkan nomor ijazah"
                   @update:model-value="(val) => handleChange(val)"
                 />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ value, handleChange }"
             name="note"
+            label="Catatan"
           >
-            <FormItem>
-              <FormLabel>Catatan</FormLabel>
+            <div class="content-start">
               <FormControl>
                 <Textarea
                   :model-value="value"
-                  placeholder="Masukkan catatan..."
                   @update:model-value="(val) => handleChange(val)"
                 />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
           <Alert
             v-if="formError"

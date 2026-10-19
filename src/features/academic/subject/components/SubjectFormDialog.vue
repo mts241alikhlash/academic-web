@@ -23,13 +23,7 @@ import {
 } from '@mts241alikhlash/ui/dialog'
 import { ScrollArea } from '@mts241alikhlash/ui/scroll-area'
 import { Input } from '@mts241alikhlash/ui/input'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FloatingField } from '@mts241alikhlash/ui/form'
 import { AlertCircle } from '@lucide/vue'
 import type { Subject, SubjectSavePayload } from '../types'
 
@@ -133,43 +127,31 @@ function confirmSave() {
           class="space-y-4 px-6 py-4"
           @submit.prevent="onSubmit"
         >
-          <FormField
+          <FloatingField
             v-slot="{ componentField }"
             name="code"
+            label="Kode Mata Pelajaran"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Kode Mata Pelajaran
-                <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <FormControl>
-                <Input
-                  placeholder="Contoh: MAT, IPA"
-                  v-bind="componentField"
-                />
+                <Input v-bind="componentField" />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ componentField }"
             name="name"
+            label="Nama Mata Pelajaran"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Nama Mata Pelajaran
-                <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <FormControl>
-                <Input
-                  placeholder="Contoh: Matematika"
-                  v-bind="componentField"
-                />
+                <Input v-bind="componentField" />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
           <Alert
             v-if="formError"

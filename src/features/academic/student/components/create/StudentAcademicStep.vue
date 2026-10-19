@@ -7,13 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@mts241alikhlash/ui/select'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FloatingField } from '@mts241alikhlash/ui/form'
 import type { Classroom } from '@/features/academic/classroom'
 import type { GradeOption } from '../../types'
 
@@ -26,44 +20,42 @@ defineProps<{
 
 <template>
   <div class="grid gap-5 md:grid-cols-2 items-start">
-    <FormField
+    <FloatingField
       v-slot="{ componentField }"
       name="nis"
+      label="NIS"
+      required
     >
-      <FormItem>
-        <FormLabel>NIS <span class="text-destructive">*</span></FormLabel>
+      <div class="content-start">
         <FormControl>
           <Input
-            placeholder="Nomor Induk Siswa"
             maxlength="20"
             v-bind="componentField"
           />
         </FormControl>
-        <FormMessage />
-      </FormItem>
-    </FormField>
-    <FormField
+      </div>
+    </FloatingField>
+    <FloatingField
       v-slot="{ componentField }"
       name="nisn"
+      label="NISN"
+      required
     >
-      <FormItem>
-        <FormLabel>NISN <span class="text-destructive">*</span></FormLabel>
+      <div class="content-start">
         <FormControl>
           <Input
-            placeholder="Nomor Induk Siswa Nasional"
             maxlength="20"
             v-bind="componentField"
           />
         </FormControl>
-        <FormMessage />
-      </FormItem>
-    </FormField>
-    <FormField
+      </div>
+    </FloatingField>
+    <FloatingField
       v-slot="{ value, handleChange }"
       name="gradeId"
+      label="Tingkat"
     >
-      <FormItem>
-        <FormLabel>Tingkat</FormLabel>
+      <div class="content-start">
         <Select
           :model-value="value"
           @update:model-value="
@@ -88,15 +80,14 @@ defineProps<{
             </SelectItem>
           </SelectContent>
         </Select>
-        <FormMessage />
-      </FormItem>
-    </FormField>
-    <FormField
+      </div>
+    </FloatingField>
+    <FloatingField
       v-slot="{ value, handleChange }"
       name="classroomId"
+      label="Kelas"
     >
-      <FormItem>
-        <FormLabel>Kelas</FormLabel>
+      <div class="content-start">
         <Select
           :model-value="value"
           @update:model-value="handleChange"
@@ -116,7 +107,7 @@ defineProps<{
             </SelectItem>
           </SelectContent>
         </Select>
-      </FormItem>
-    </FormField>
+      </div>
+    </FloatingField>
   </div>
 </template>

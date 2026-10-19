@@ -30,13 +30,7 @@ import {
   DialogTitle,
 } from '@mts241alikhlash/ui/dialog'
 import { ScrollArea } from '@mts241alikhlash/ui/scroll-area'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FormField, FloatingField } from '@mts241alikhlash/ui/form'
 import {
   Popover,
   PopoverContent,
@@ -318,17 +312,17 @@ function onOpenChange(val: boolean) {
               </FormItem>
             </FormField>
 
-            <FormField
-              v-slot="{ componentField }"
+            <FloatingField
+              v-slot="{ value, handleChange }"
               name="relation"
+              label="Hubungan"
+              required
             >
-              <FormItem>
-                <FormLabel
-                  >Hubungan <span class="text-destructive">*</span></FormLabel
-                >
+              <div class="content-start">
                 <Select
-                  v-bind="componentField"
+                  :model-value="value"
                   :disabled="isSaving"
+                  @update:model-value="handleChange"
                 >
                   <FormControl>
                     <SelectTrigger class="w-full">
@@ -337,24 +331,23 @@ function onOpenChange(val: boolean) {
                   </FormControl>
                   <SelectContent>
                     <SelectItem
-                      v-for="(label, value) in PARENT_RELATIONS"
-                      :key="value"
-                      :value="value"
+                      v-for="(label, key) in PARENT_RELATIONS"
+                      :key="key"
+                      :value="key"
                     >
                       {{ label }}
                     </SelectItem>
                   </SelectContent>
                 </Select>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
 
-            <FormField
+            <FloatingField
               v-slot="{ value }"
               name="isPrimary"
+              label="Wali Utama"
             >
-              <FormItem>
-                <FormLabel>Wali Utama</FormLabel>
+              <div class="content-start">
                 <Select
                   :model-value="value ? 'true' : 'false'"
                   :disabled="isSaving"
@@ -372,9 +365,8 @@ function onOpenChange(val: boolean) {
                     <SelectItem value="false">Tidak</SelectItem>
                   </SelectContent>
                 </Select>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
           </form>
         </div>
       </ScrollArea>

@@ -12,7 +12,12 @@ import { useClassroomSupervisor } from '../composables/useClassroomSupervisor'
 import { useClassroomEnrollment } from '../composables/useClassroomEnrollment'
 import { useClassroomStructure } from '../composables/useClassroomStructure'
 import { useBreadcrumbs } from '@mts241alikhlash/web-shared/composables/useBreadcrumbs'
-import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from '@mts241alikhlash/ui/card'
 import ClassroomInfoCard from '../components/ClassroomInfoCard.vue'
 import ClassroomStructureCard from '../components/ClassroomStructureCard.vue'
 import ClassroomStudentsCard from '../components/ClassroomStudentsCard.vue'
@@ -216,25 +221,27 @@ onMounted(async () => {
 <template>
   <div class="p-4 md:p-6 lg:p-8">
     <Card
+      gap="none"
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader
-        class="flex flex-row items-center justify-between border-b px-6 py-5"
-      >
+      <CardHeader standard>
         <div class="flex items-center gap-3">
           <BackButton
             label="Kembali ke daftar kelas"
             @click="router.push('/academic/classroom')"
           />
           <div>
-            <CardTitle class="text-2xl font-bold tracking-tight">
+            <CardTitle size="lg">
               Kelola Kelas {{ currentClassroom?.displayName ?? '' }}
             </CardTitle>
           </div>
         </div>
       </CardHeader>
 
-      <div class="p-6 space-y-6">
+      <CardContent
+        variant="standard"
+        class="space-y-6"
+      >
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <ClassroomInfoCard
             :current-classroom="currentClassroom"
@@ -259,7 +266,7 @@ onMounted(async () => {
           @transfer-students="handleTransferStudents"
           @unenroll-students="handleUnenrollStudents"
         />
-      </div>
+      </CardContent>
     </Card>
 
     <AddStudentDialog

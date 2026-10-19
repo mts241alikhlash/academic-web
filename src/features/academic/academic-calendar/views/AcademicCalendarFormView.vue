@@ -8,13 +8,7 @@ import { PAGINATION } from '@mts241alikhlash/web-shared/constants/pagination'
 import { ref, onMounted } from 'vue'
 import { useCalendarFormPage } from '../composables/useCalendarFormPage'
 import { Button } from '@mts241alikhlash/ui/button'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FormField, FloatingField } from '@mts241alikhlash/ui/form'
 import { Input } from '@mts241alikhlash/ui/input'
 import {
   Popover,
@@ -90,18 +84,17 @@ useBreadcrumbs(() => {
 <template>
   <div class="p-4 md:p-6 lg:p-8">
     <Card
-      class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4 flex flex-col gap-0"
+      gap="none"
+      class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader
-        class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b px-6 py-5 shrink-0 gap-4"
-      >
+      <CardHeader standard>
         <div class="flex items-center gap-3">
           <BackButton
             label="Kembali ke manajemen kalender"
             @click="onCancel"
           />
           <div>
-            <CardTitle class="text-2xl font-bold tracking-tight">
+            <CardTitle size="lg">
               {{
                 isEditMode ? 'Edit Agenda Kalender' : 'Tambah Agenda Kalender'
               }}
@@ -126,29 +119,28 @@ useBreadcrumbs(() => {
       >
         <div class="p-6 md:p-8 space-y-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <FormField
+            <FloatingField
               v-slot="{ componentField }"
               name="title"
+              label="Nama Agenda"
             >
-              <FormItem class="md:col-span-2">
-                <FormLabel>Nama Agenda</FormLabel>
+              <div class="md:col-span-2">
                 <FormControl>
-                  <Input
-                    v-bind="componentField"
-                    placeholder="Contoh: Ujian Akhir Semester Ganjil"
-                  />
+                  <Input v-bind="componentField" />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
 
-            <FormField
-              v-slot="{ componentField }"
+            <FloatingField
+              v-slot="{ value, handleChange }"
               name="typeId"
+              label="Kategori Agenda"
             >
-              <FormItem>
-                <FormLabel>Kategori Agenda</FormLabel>
-                <Select v-bind="componentField">
+              <div class="content-start">
+                <Select
+                  :model-value="value"
+                  @update:model-value="handleChange"
+                >
                   <FormControl>
                     <SelectTrigger class="w-full">
                       <SelectValue placeholder="Pilih Kategori" />
@@ -164,9 +156,8 @@ useBreadcrumbs(() => {
                     </SelectItem>
                   </SelectContent>
                 </Select>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
 
             <FormField name="startDate">
               <FormItem class="flex flex-col justify-end">
@@ -210,69 +201,52 @@ useBreadcrumbs(() => {
               </FormItem>
             </FormField>
 
-            <FormField
+            <FloatingField
               v-slot="{ componentField }"
               name="startTime"
+              label="Jam Mulai (Opsional)"
+              always-float
             >
-              <FormItem>
-                <FormLabel>
-                  Jam Mulai
-                  <span class="text-muted-foreground font-normal text-xs"
-                    >(Opsional)</span
-                  >
-                </FormLabel>
+              <div class="content-start">
                 <FormControl>
                   <Input
                     v-bind="componentField"
                     type="time"
                   />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
 
-            <FormField
+            <FloatingField
               v-slot="{ componentField }"
               name="endTime"
+              label="Jam Selesai (Opsional)"
+              always-float
             >
-              <FormItem>
-                <FormLabel>
-                  Jam Selesai
-                  <span class="text-muted-foreground font-normal text-xs"
-                    >(Opsional)</span
-                  >
-                </FormLabel>
+              <div class="content-start">
                 <FormControl>
                   <Input
                     v-bind="componentField"
                     type="time"
                   />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
 
-            <FormField
+            <FloatingField
               v-slot="{ componentField }"
               name="description"
+              label="Deskripsi / Keterangan (Opsional)"
             >
-              <FormItem class="md:col-span-2">
-                <FormLabel>
-                  Deskripsi / Keterangan
-                  <span class="text-muted-foreground font-normal text-xs"
-                    >(Opsional)</span
-                  >
-                </FormLabel>
+              <div class="md:col-span-2">
                 <FormControl>
                   <Textarea
                     v-bind="componentField"
-                    placeholder="Tambahkan catatan atau rincian agenda..."
                     class="resize-none min-h-[120px]"
                   />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
           </div>
         </div>
 

@@ -26,13 +26,7 @@ import {
   DialogTitle,
 } from '@mts241alikhlash/ui/dialog'
 import { ScrollArea } from '@mts241alikhlash/ui/scroll-area'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FormField, FloatingField } from '@mts241alikhlash/ui/form'
 import { AppCombobox } from '@mts241alikhlash/ui'
 import type { ComboboxOption } from '@mts241alikhlash/ui'
 import { Checkbox } from '@mts241alikhlash/ui/checkbox'
@@ -378,19 +372,18 @@ function confirmSave() {
             </FormItem>
           </FormField>
 
-          <FormField
+          <FloatingField
             v-if="isEditing"
             v-slot="{ componentField }"
             name="passingScore"
+            label="KKM Kelas Ini"
           >
-            <FormItem>
-              <FormLabel>KKM Kelas Ini</FormLabel>
+            <div class="content-start">
               <FormControl>
                 <Input
                   type="number"
                   min="0"
                   max="100"
-                  placeholder="Ikuti KKM kurikulum"
                   v-bind="componentField"
                 />
               </FormControl>
@@ -398,9 +391,8 @@ function confirmSave() {
                 Kosongkan untuk mengikuti KKM yang ditetapkan kurikulum. Isi
                 hanya jika kelas ini memang dinilai dengan batas berbeda.
               </p>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
           <Alert
             v-if="formError"

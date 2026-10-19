@@ -2,7 +2,12 @@
 import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { DataTable } from '@mts241alikhlash/ui'
-import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from '@mts241alikhlash/ui/card'
 import { createLessonColumns } from '../components/columns'
 import { useLessonClassrooms } from '../composables/useLessonClassrooms'
 import type { LessonClassItem } from '../types'
@@ -31,16 +36,13 @@ onMounted(() => {
 <template>
   <div class="p-4 md:p-6 lg:p-8">
     <Card
+      gap="none"
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader
-        class="flex flex-row items-center justify-between border-b px-6 py-5"
-      >
-        <CardTitle class="text-2xl font-bold tracking-tight">
-          Jadwal Pelajaran
-        </CardTitle>
+      <CardHeader standard>
+        <CardTitle size="lg"> Jadwal Pelajaran </CardTitle>
       </CardHeader>
-      <div class="p-6">
+      <CardContent variant="standard">
         <DataTable
           :columns="tableColumns"
           :data="classrooms"
@@ -49,7 +51,7 @@ onMounted(() => {
           filter-column="code"
           filter-placeholder="Cari kelas..."
         />
-      </div>
+      </CardContent>
     </Card>
   </div>
 </template>

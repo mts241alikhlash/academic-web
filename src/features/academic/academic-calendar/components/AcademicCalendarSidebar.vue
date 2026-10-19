@@ -23,14 +23,20 @@ const { formatDateStr } = useCalendarFormat()
 
 <template>
   <div class="space-y-6">
-    <Card class="bg-primary/5">
-      <CardHeader class="border-b px-4 py-3">
-        <CardTitle
-          class="text-sm font-semibold text-primary flex items-center gap-2"
-        >
-          <Clock class="size-4" />
-          Kegiatan Hari Ini
-        </CardTitle>
+    <Card
+      gap="none"
+      class="bg-primary/5"
+    >
+      <CardHeader standard>
+        <div class="flex items-center gap-3">
+          <CardTitle
+            size="md"
+            class="text-primary flex items-center gap-2"
+          >
+            <Clock class="size-4" />
+            Kegiatan Hari Ini
+          </CardTitle>
+        </div>
       </CardHeader>
       <CardContent class="p-3 pt-0">
         <div
@@ -70,12 +76,20 @@ const { formatDateStr } = useCalendarFormat()
       </CardContent>
     </Card>
 
-    <Card class="bg-muted/30">
-      <CardHeader class="border-b px-4 py-3">
-        <CardTitle class="text-sm font-semibold flex items-center gap-2">
-          <CalendarIcon class="size-4" />
-          Kegiatan Mendatang
-        </CardTitle>
+    <Card
+      gap="none"
+      class="bg-muted/30"
+    >
+      <CardHeader standard>
+        <div class="flex items-center gap-3">
+          <CardTitle
+            size="md"
+            class="flex items-center gap-2"
+          >
+            <CalendarIcon class="size-4" />
+            Kegiatan Mendatang
+          </CardTitle>
+        </div>
       </CardHeader>
       <CardContent class="p-3 pt-0">
         <div
