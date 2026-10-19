@@ -7,7 +7,12 @@ import { useSemesterList } from '../composables/useSemesterList'
 import { useSemesterRollover } from '../composables/useSemesterRollover'
 import { DataTable } from '@mts241alikhlash/ui'
 import { Button } from '@mts241alikhlash/ui/button'
-import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from '@mts241alikhlash/ui/card'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -139,14 +144,11 @@ onMounted(() => {
 <template>
   <div class="p-4 md:p-6 lg:p-8">
     <Card
+      gap="none"
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader
-        class="flex flex-col gap-3 border-b px-6 py-5 sm:flex-row sm:items-center sm:justify-between"
-      >
-        <CardTitle class="text-2xl font-bold tracking-tight">
-          Semester
-        </CardTitle>
+      <CardHeader standard>
+        <CardTitle size="lg"> Semester </CardTitle>
         <div
           v-if="can('semesters.create')"
           class="flex w-full items-center justify-end gap-2 sm:w-auto"
@@ -165,7 +167,10 @@ onMounted(() => {
         </div>
       </CardHeader>
 
-      <div class="p-6 space-y-4">
+      <CardContent
+        variant="standard"
+        class="space-y-4"
+      >
         <DataTable
           :columns="tableColumns"
           :data="semesters"
@@ -190,7 +195,7 @@ onMounted(() => {
           :rollover-summary="rolloverSummary"
           @rollover="handleRollover"
         />
-      </div>
+      </CardContent>
     </Card>
   </div>
 

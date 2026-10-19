@@ -20,13 +20,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@mts241alikhlash/ui/dialog'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FloatingField } from '@mts241alikhlash/ui/form'
 import type { TimeSlotType } from '../types'
 
 const props = defineProps<{
@@ -139,52 +133,45 @@ const onSubmit = handleSubmit(async (values) => {
           class="space-y-5 px-6 py-4"
           @submit.prevent="onSubmit"
         >
-          <FormField
+          <FloatingField
             v-slot="{ componentField }"
             name="code"
+            label="Kode"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Kode <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <FormControl>
                 <Input
-                  placeholder="cth: CEREMONY"
                   :disabled="isSubmitting || !!initialData"
                   v-bind="componentField"
                 />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ componentField }"
             name="name"
+            label="Nama"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Nama <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <FormControl>
                 <Input
-                  placeholder="cth: Upacara"
                   :disabled="isSubmitting"
                   v-bind="componentField"
                 />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ componentField }"
             name="defaultDurationMinutes"
+            label="Durasi"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Durasi <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <FormControl>
                 <div class="relative">
                   <Input
@@ -206,9 +193,8 @@ const onSubmit = handleSubmit(async (values) => {
                 Mengisi otomatis jam selesai saat baris baru ditambahkan. Jam
                 yang sudah tersimpan tidak ikut berubah.
               </p>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
           <div class="space-y-2">
             <label class="text-sm font-medium leading-none">Jenis</label>

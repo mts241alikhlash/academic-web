@@ -174,25 +174,26 @@ onMounted(fetchData)
 <template>
   <div class="p-4 md:p-6 lg:p-8">
     <Card
+      gap="none"
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader class="flex flex-row items-center gap-3 border-b px-6 py-5">
-        <BackButton
-          label="Kembali ke jadwal pelajaran"
-          @click="router.push('/learning/lesson')"
-        />
-        <div class="flex-1 flex flex-col gap-1">
-          <CardTitle class="text-2xl font-bold tracking-tight">
-            Jadwal Pelajaran
-          </CardTitle>
-          <div class="text-sm font-medium text-muted-foreground">
-            <span v-if="classroomInfo">
-              Kelas {{ formatEntityName(classroomInfo.code) }}
-            </span>
-            <Skeleton
-              v-else
-              class="h-5 w-32"
-            />
+      <CardHeader standard>
+        <div class="flex items-center gap-3">
+          <BackButton
+            label="Kembali ke jadwal pelajaran"
+            @click="router.push('/learning/lesson')"
+          />
+          <div class="flex-1 flex flex-col gap-1">
+            <CardTitle size="lg"> Jadwal Pelajaran </CardTitle>
+            <div class="text-sm font-medium text-muted-foreground">
+              <span v-if="classroomInfo">
+                Kelas {{ formatEntityName(classroomInfo.code) }}
+              </span>
+              <Skeleton
+                v-else
+                class="h-5 w-32"
+              />
+            </div>
           </div>
         </div>
       </CardHeader>

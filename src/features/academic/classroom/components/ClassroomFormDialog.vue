@@ -33,13 +33,7 @@ import {
   SelectValue,
 } from '@mts241alikhlash/ui/select'
 import { AlertCircle } from '@lucide/vue'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FloatingField } from '@mts241alikhlash/ui/form'
 
 const props = defineProps<{
   open: boolean
@@ -100,15 +94,13 @@ const classroomForm = useClassroomForm({
           <div
             class="grid grid-cols-1 items-start gap-x-4 gap-y-3 sm:grid-cols-2"
           >
-            <FormField
+            <FloatingField
               v-slot="{ value, handleChange }"
               name="academicYearId"
+              label="Tahun Ajaran"
+              required
             >
-              <FormItem>
-                <FormLabel
-                  >Tahun Ajaran
-                  <span class="text-destructive">*</span></FormLabel
-                >
+              <div class="content-start">
                 <Select
                   :model-value="value"
                   disabled
@@ -129,18 +121,16 @@ const classroomForm = useClassroomForm({
                     </SelectItem>
                   </SelectContent>
                 </Select>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
 
-            <FormField
+            <FloatingField
               v-slot="{ value, handleChange }"
               name="gradeId"
+              label="Tingkat"
+              required
             >
-              <FormItem>
-                <FormLabel
-                  >Tingkat <span class="text-destructive">*</span></FormLabel
-                >
+              <div class="content-start">
                 <Select
                   :model-value="value"
                   @update:model-value="handleChange"
@@ -160,62 +150,54 @@ const classroomForm = useClassroomForm({
                     </SelectItem>
                   </SelectContent>
                 </Select>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
 
-            <FormField
+            <FloatingField
               v-slot="{ componentField }"
               name="code"
+              label="Nama Kelas"
+              required
             >
-              <FormItem>
-                <FormLabel
-                  >Nama Kelas <span class="text-destructive">*</span></FormLabel
-                >
+              <div class="content-start">
                 <FormControl>
                   <Input
                     type="text"
-                    placeholder="Contoh: VII A"
                     class="h-9"
                     v-bind="componentField"
                   />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
 
-            <FormField
+            <FloatingField
               v-slot="{ componentField }"
               name="name"
+              label="Alias"
             >
-              <FormItem>
-                <FormLabel>Alias</FormLabel>
+              <div class="content-start">
                 <FormControl>
                   <Input
                     type="text"
-                    placeholder="Contoh: Awesome (opsional)"
                     class="h-9"
                     v-bind="componentField"
                   />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
 
-            <FormField
+            <FloatingField
               v-slot="{ value, handleChange }"
               name="capacity"
+              label="Kapasitas"
+              required
             >
-              <FormItem>
-                <FormLabel
-                  >Kapasitas <span class="text-destructive">*</span></FormLabel
-                >
+              <div class="content-start">
                 <FormControl>
                   <Input
                     type="text"
                     inputmode="numeric"
                     pattern="[0-9]*"
-                    placeholder="Contoh: 30"
                     class="h-9"
                     :model-value="String(value ?? '')"
                     @keydown="
@@ -245,18 +227,16 @@ const classroomForm = useClassroomForm({
                     "
                   />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
 
-            <FormField
+            <FloatingField
               v-slot="{ value, handleChange }"
               name="isActive"
+              label="Status"
+              required
             >
-              <FormItem>
-                <FormLabel
-                  >Status <span class="text-destructive">*</span></FormLabel
-                >
+              <div class="content-start">
                 <Select
                   :model-value="String(value)"
                   @update:model-value="handleChange($event === 'true')"
@@ -271,8 +251,8 @@ const classroomForm = useClassroomForm({
                     <SelectItem value="false"> Tidak Aktif </SelectItem>
                   </SelectContent>
                 </Select>
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
           </div>
 
           <Alert

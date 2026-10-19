@@ -8,59 +8,48 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@mts241alikhlash/ui/select'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FloatingField } from '@mts241alikhlash/ui/form'
 </script>
 
 <template>
   <div class="grid gap-5 md:grid-cols-2 items-start">
-    <FormField
+    <FloatingField
       v-slot="{ componentField }"
       name="name"
+      label="Nama Lengkap"
+      required
     >
-      <FormItem class="md:col-span-2">
-        <FormLabel
-          >Nama Lengkap <span class="text-destructive">*</span></FormLabel
-        >
+      <div class="md:col-span-2">
         <FormControl>
           <Input
-            placeholder="Masukkan nama lengkap"
             maxlength="100"
             v-bind="componentField"
           />
         </FormControl>
-        <FormMessage />
-      </FormItem>
-    </FormField>
-    <FormField
+      </div>
+    </FloatingField>
+    <FloatingField
       v-slot="{ componentField }"
       name="nik"
+      label="NIK"
+      required
     >
-      <FormItem>
-        <FormLabel>NIK <span class="text-destructive">*</span></FormLabel>
+      <div class="content-start">
         <FormControl>
           <Input
-            placeholder="16 digit NIK"
             maxlength="16"
             v-bind="componentField"
           />
         </FormControl>
-        <FormMessage />
-      </FormItem>
-    </FormField>
-    <FormField
+      </div>
+    </FloatingField>
+    <FloatingField
       v-slot="{ value, handleChange }"
       name="gender"
+      label="Jenis Kelamin"
+      required
     >
-      <FormItem>
-        <FormLabel
-          >Jenis Kelamin <span class="text-destructive">*</span></FormLabel
-        >
+      <div class="content-start">
         <Select
           :model-value="value"
           @update:model-value="handleChange"
@@ -75,35 +64,30 @@ import {
             <SelectItem value="FEMALE"> Perempuan </SelectItem>
           </SelectContent>
         </Select>
-        <FormMessage />
-      </FormItem>
-    </FormField>
-    <FormField
+      </div>
+    </FloatingField>
+    <FloatingField
       v-slot="{ componentField }"
       name="birthPlace"
+      label="Tempat Lahir"
+      required
     >
-      <FormItem>
-        <FormLabel
-          >Tempat Lahir <span class="text-destructive">*</span></FormLabel
-        >
+      <div class="content-start">
         <FormControl>
           <Input
-            placeholder="Kota lahir"
             maxlength="100"
             v-bind="componentField"
           />
         </FormControl>
-        <FormMessage />
-      </FormItem>
-    </FormField>
-    <FormField
+      </div>
+    </FloatingField>
+    <FloatingField
       v-slot="{ value, handleChange }"
       name="birthDate"
+      label="Tanggal Lahir"
+      required
     >
-      <FormItem>
-        <FormLabel
-          >Tanggal Lahir <span class="text-destructive">*</span></FormLabel
-        >
+      <div class="content-start">
         <FormControl>
           <DatePicker
             :model-value="value"
@@ -111,41 +95,36 @@ import {
             @update:model-value="handleChange"
           />
         </FormControl>
-        <FormMessage />
-      </FormItem>
-    </FormField>
-    <FormField
+      </div>
+    </FloatingField>
+    <FloatingField
       v-slot="{ componentField }"
       name="email"
+      label="Email"
     >
-      <FormItem>
-        <FormLabel>Email</FormLabel>
+      <div class="content-start">
         <FormControl>
           <Input
             type="email"
-            placeholder="contoh@email.com (opsional)"
             maxlength="255"
             v-bind="componentField"
           />
         </FormControl>
-        <FormMessage />
-      </FormItem>
-    </FormField>
-    <FormField
+      </div>
+    </FloatingField>
+    <FloatingField
       v-slot="{ componentField }"
       name="phone"
+      label="No. HP"
     >
-      <FormItem>
-        <FormLabel>No. HP</FormLabel>
+      <div class="content-start">
         <FormControl>
           <Input
-            placeholder="08123456789 (opsional)"
             maxlength="15"
             v-bind="componentField"
           />
         </FormControl>
-        <FormMessage />
-      </FormItem>
-    </FormField>
+      </div>
+    </FloatingField>
   </div>
 </template>

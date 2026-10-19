@@ -23,13 +23,7 @@ import {
 } from '@mts241alikhlash/ui/select'
 import { AlertCircle, Loader2 } from '@lucide/vue'
 import { ScrollArea } from '@mts241alikhlash/ui/scroll-area'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FloatingField } from '@mts241alikhlash/ui/form'
 
 const props = defineProps<{
   open: boolean
@@ -85,14 +79,13 @@ const semesterForm = useSemesterForm({
           class="space-y-4 px-6 py-4"
           @submit.prevent="semesterForm.onSubmit"
         >
-          <FormField
+          <FloatingField
             v-slot="{ value, handleChange }"
             name="academicYearId"
+            label="Tahun Ajaran"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Tahun Ajaran <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <Select
                 :model-value="value"
                 :disabled="
@@ -115,19 +108,16 @@ const semesterForm = useSemesterForm({
                   </SelectItem>
                 </SelectContent>
               </Select>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ value, handleChange }"
             name="typeId"
+            label="Tipe Semester"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Tipe Semester
-                <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <Select
                 :model-value="value"
                 :disabled="semesterForm.isSaving.value"
@@ -154,20 +144,17 @@ const semesterForm = useSemesterForm({
                   </SelectItem>
                 </SelectContent>
               </Select>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
           <div class="grid grid-cols-2 gap-4">
-            <FormField
+            <FloatingField
               v-slot="{ value, handleChange }"
               name="startDate"
+              label="Tanggal Mulai"
+              required
             >
-              <FormItem class="content-start">
-                <FormLabel
-                  >Tanggal Mulai
-                  <span class="text-destructive">*</span></FormLabel
-                >
+              <div class="content-start">
                 <FormControl>
                   <DatePicker
                     :model-value="value ?? ''"
@@ -176,19 +163,16 @@ const semesterForm = useSemesterForm({
                     @update:model-value="handleChange"
                   />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
 
-            <FormField
+            <FloatingField
               v-slot="{ value, handleChange }"
               name="endDate"
+              label="Tanggal Selesai"
+              required
             >
-              <FormItem class="content-start">
-                <FormLabel
-                  >Tanggal Selesai
-                  <span class="text-destructive">*</span></FormLabel
-                >
+              <div class="content-start">
                 <FormControl>
                   <DatePicker
                     :model-value="value ?? ''"
@@ -198,9 +182,8 @@ const semesterForm = useSemesterForm({
                     @update:model-value="handleChange"
                   />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            </FormField>
+              </div>
+            </FloatingField>
           </div>
 
           <Alert

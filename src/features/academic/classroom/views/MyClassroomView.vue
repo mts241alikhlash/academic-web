@@ -112,23 +112,26 @@ function supervisorName(supervisor: MyClassroom['supervisor']) {
 
     <template v-else>
       <Card
+        gap="none"
         class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
       >
-        <CardHeader
-          class="flex flex-row items-center justify-between border-b px-6 py-5"
-        >
-          <CardTitle class="text-2xl font-bold tracking-tight">
-            Kelas {{ data.classroom.code }}
-          </CardTitle>
+        <CardHeader standard>
+          <CardTitle size="lg"> Kelas {{ data.classroom.code }} </CardTitle>
         </CardHeader>
 
-        <div class="p-6 space-y-5">
+        <CardContent
+          variant="standard"
+          class="space-y-5"
+        >
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            <Card class="shadow-none">
-              <CardHeader class="border-b px-5 py-4">
-                <CardTitle class="text-sm font-semibold">
-                  Informasi Kelas
-                </CardTitle>
+            <Card
+              gap="none"
+              class="shadow-none"
+            >
+              <CardHeader standard>
+                <div class="flex items-center gap-3">
+                  <CardTitle size="md"> Informasi Kelas </CardTitle>
+                </div>
               </CardHeader>
               <CardContent class="px-5 py-4 space-y-2.5 text-sm">
                 <div class="flex items-center justify-between gap-4">
@@ -175,11 +178,14 @@ function supervisorName(supervisor: MyClassroom['supervisor']) {
               </CardContent>
             </Card>
 
-            <Card class="shadow-none">
-              <CardHeader class="border-b px-5 py-4">
-                <CardTitle class="text-sm font-semibold">
-                  Struktur Kelas
-                </CardTitle>
+            <Card
+              gap="none"
+              class="shadow-none"
+            >
+              <CardHeader standard>
+                <div class="flex items-center gap-3">
+                  <CardTitle size="md"> Struktur Kelas </CardTitle>
+                </div>
               </CardHeader>
               <CardContent class="px-5 py-4 text-sm">
                 <p
@@ -213,18 +219,24 @@ function supervisorName(supervisor: MyClassroom['supervisor']) {
             </Card>
           </div>
 
-          <Card class="shadow-none">
-            <CardHeader class="border-b px-5 py-4">
-              <div class="flex items-center gap-2">
-                <CardTitle class="text-sm font-semibold">
-                  Teman Sekelas
-                </CardTitle>
-                <Badge variant="secondary">
-                  {{ data.classmates.length }}
-                </Badge>
+          <Card
+            gap="none"
+            class="shadow-none"
+          >
+            <CardHeader standard>
+              <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2">
+                  <CardTitle size="md"> Teman Sekelas </CardTitle>
+                  <Badge variant="secondary">
+                    {{ data.classmates.length }}
+                  </Badge>
+                </div>
               </div>
             </CardHeader>
-            <CardContent class="p-5 space-y-4">
+            <CardContent
+              variant="standard"
+              class="space-y-4"
+            >
               <div
                 v-if="data.classmates.length === 0"
                 class="flex flex-col items-center justify-center py-12 text-center border border-dashed rounded-lg bg-muted/20"
@@ -248,7 +260,7 @@ function supervisorName(supervisor: MyClassroom['supervisor']) {
               />
             </CardContent>
           </Card>
-        </div>
+        </CardContent>
       </Card>
     </template>
   </div>

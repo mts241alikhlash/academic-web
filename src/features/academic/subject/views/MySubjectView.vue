@@ -89,17 +89,14 @@ onMounted(async () => {
 
     <Card
       v-else
+      gap="none"
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader
-        class="flex flex-row items-center justify-between border-b px-6 py-5"
-      >
-        <CardTitle class="text-2xl font-bold tracking-tight">
-          Mata Pelajaran Saya
-        </CardTitle>
+      <CardHeader standard>
+        <CardTitle size="lg"> Mata Pelajaran Saya </CardTitle>
       </CardHeader>
 
-      <div class="p-6">
+      <CardContent variant="standard">
         <Card
           v-if="!classroomCode"
           class="shadow-none"
@@ -139,7 +136,7 @@ onMounted(async () => {
           hide-per-page
           hide-pagination
         />
-      </div>
+      </CardContent>
     </Card>
   </div>
 </template>

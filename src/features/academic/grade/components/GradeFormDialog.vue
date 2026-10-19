@@ -24,13 +24,7 @@ import {
 } from '@mts241alikhlash/ui/select'
 import { Alert, AlertDescription } from '@mts241alikhlash/ui/alert'
 import { AlertCircle, Loader2 } from '@lucide/vue'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FloatingField } from '@mts241alikhlash/ui/form'
 import { academicYearApi } from '@/features/academic/academic-year'
 import { curriculumApi } from '@/features/academic/curriculum'
 import type { AcademicYear } from '@/features/academic/academic-year'
@@ -175,56 +169,49 @@ onMounted(async () => {
           class="space-y-4 px-6 py-4"
           @submit.prevent="levelForm.onSubmit"
         >
-          <FormField
+          <FloatingField
             v-slot="{ value, handleChange }"
             name="level"
+            label="Tingkat"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Tingkat <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <FormControl>
                 <Input
                   id="cl-level"
                   type="number"
                   min="1"
                   max="15"
-                  placeholder="Contoh: 7"
                   :model-value="value"
                   @update:model-value="(val) => handleChange(Number(val))"
                 />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ componentField }"
             name="name"
+            label="Nama Tingkat"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Nama Tingkat <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <FormControl>
                 <Input
                   id="cl-name"
-                  placeholder="Contoh: VII"
                   v-bind="componentField"
                 />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ value, handleChange }"
             name="isActive"
+            label="Status"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Status <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <Select
                 :model-value="value ? 'true' : 'false'"
                 @update:model-value="(val) => handleChange(val === 'true')"
@@ -242,9 +229,8 @@ onMounted(async () => {
                   <SelectItem value="false"> Nonaktif </SelectItem>
                 </SelectContent>
               </Select>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
           <Alert
             v-if="levelForm.formError.value"

@@ -63,7 +63,10 @@ defineExpose({
 </script>
 
 <template>
-  <Card class="space-y-4 p-5 gap-0">
+  <Card
+    gap="none"
+    class="space-y-4 p-5"
+  >
     <div
       class="flex flex-col sm:flex-row sm:items-center justify-between gap-3"
     >

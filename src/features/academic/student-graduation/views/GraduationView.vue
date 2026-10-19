@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 import { Button } from '@mts241alikhlash/ui/button'
-import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from '@mts241alikhlash/ui/card'
 import { DatePicker } from '@mts241alikhlash/ui'
 import {
   Dialog,
@@ -159,17 +164,17 @@ async function handleConfirmGraduate() {
 <template>
   <div class="p-4 md:p-6 lg:p-8">
     <Card
+      gap="none"
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader
-        class="flex flex-row items-center justify-between border-b px-6 py-5"
-      >
-        <CardTitle class="text-2xl font-bold tracking-tight">
-          Kelulusan
-        </CardTitle>
+      <CardHeader standard>
+        <CardTitle size="lg"> Kelulusan </CardTitle>
       </CardHeader>
 
-      <div class="p-6 space-y-4">
+      <CardContent
+        variant="standard"
+        class="space-y-4"
+      >
         <div
           class="rounded-xl border bg-muted/20 p-4 space-y-2 text-xs leading-5"
         >
@@ -307,7 +312,7 @@ async function handleConfirmGraduate() {
             Proses Kelulusan
           </Button>
         </div>
-      </div>
+      </CardContent>
     </Card>
   </div>
 

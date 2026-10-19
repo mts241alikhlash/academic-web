@@ -32,13 +32,7 @@ import {
   AlertDialogTitle,
 } from '@mts241alikhlash/ui/alert-dialog'
 import { Alert, AlertDescription } from '@mts241alikhlash/ui/alert'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FloatingField } from '@mts241alikhlash/ui/form'
 
 const props = defineProps<{
   open: boolean
@@ -89,14 +83,13 @@ const curriculumForm = useCurriculumForm({
           class="space-y-4 px-6 py-4"
           @submit.prevent="curriculumForm.onSubmit"
         >
-          <FormField
+          <FloatingField
             v-slot="{ value, handleChange }"
             name="academicYearId"
+            label="Tahun Ajaran"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Tahun Ajaran <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <Select
                 :model-value="value"
                 disabled
@@ -117,36 +110,29 @@ const curriculumForm = useCurriculumForm({
                   </SelectItem>
                 </SelectContent>
               </Select>
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ componentField }"
             name="name"
+            label="Nama Kurikulum"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Nama Kurikulum
-                <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <FormControl>
-                <Input
-                  placeholder="Contoh: Kurikulum Merdeka"
-                  v-bind="componentField"
-                />
+                <Input v-bind="componentField" />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ value, handleChange }"
             name="isActive"
+            label="Status"
+            required
           >
-            <FormItem>
-              <FormLabel
-                >Status <span class="text-destructive">*</span></FormLabel
-              >
+            <div class="content-start">
               <Select
                 :model-value="String(value)"
                 @update:model-value="handleChange($event === 'true')"
@@ -161,8 +147,8 @@ const curriculumForm = useCurriculumForm({
                   <SelectItem value="false"> Tidak Aktif </SelectItem>
                 </SelectContent>
               </Select>
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
           <Alert
             v-if="curriculumForm.formError.value"

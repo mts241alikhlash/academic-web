@@ -13,17 +13,13 @@ const tableRef = ref<InstanceType<typeof TimeSlotManageTable> | null>(null)
 <template>
   <div class="p-4 md:p-6 lg:p-8">
     <Card
-      class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4 flex flex-col gap-0"
+      gap="none"
+      class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader
-        class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b px-6 py-5 gap-4 shrink-0"
-      >
-        <CardTitle class="text-2xl font-bold tracking-tight">
-          Jam Pelajaran
-        </CardTitle>
+      <CardHeader standard>
+        <CardTitle size="lg"> Jam Pelajaran </CardTitle>
         <Button
           v-if="can('time-slots.create')"
-          class="w-full sm:w-auto"
           @click="tableRef?.addRow"
         >
           <Plus class="size-4 mr-2" />

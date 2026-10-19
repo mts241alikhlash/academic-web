@@ -5,7 +5,12 @@ import GradeFormDialog from '../components/GradeFormDialog.vue'
 import { useGradeList } from '../composables/useGradeList'
 import { DataTable, SearchInput } from '@mts241alikhlash/ui'
 import { Button } from '@mts241alikhlash/ui/button'
-import { Card, CardHeader, CardTitle } from '@mts241alikhlash/ui/card'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from '@mts241alikhlash/ui/card'
 import { Plus } from '@lucide/vue'
 import { useRoleGuard } from '@/features/platform/auth'
 import { onMounted, ref, watch } from 'vue'
@@ -63,14 +68,11 @@ onMounted(() => {
 <template>
   <div class="p-4 md:p-6 lg:p-8">
     <Card
+      gap="none"
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader
-        class="flex flex-row items-center justify-between border-b px-6 py-5"
-      >
-        <CardTitle class="text-2xl font-bold tracking-tight">
-          Tingkat Kelas
-        </CardTitle>
+      <CardHeader standard>
+        <CardTitle size="lg"> Tingkat Kelas </CardTitle>
         <Button
           v-if="can('academic-years.create')"
           @click="isAddModalOpen = true"
@@ -80,7 +82,10 @@ onMounted(() => {
         </Button>
       </CardHeader>
 
-      <div class="p-6 space-y-4">
+      <CardContent
+        variant="standard"
+        class="space-y-4"
+      >
         <DataTable
           :columns="tableColumns"
           :data="items"
@@ -105,7 +110,7 @@ onMounted(() => {
           :edit-data="editingItem"
           @save-success="fetchGrades"
         />
-      </div>
+      </CardContent>
     </Card>
   </div>
 </template>

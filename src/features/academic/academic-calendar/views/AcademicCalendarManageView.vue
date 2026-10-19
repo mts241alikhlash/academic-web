@@ -43,25 +43,19 @@ onMounted(() => {
 <template>
   <div class="p-4 md:p-6 lg:p-8">
     <Card
+      gap="none"
       class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
     >
-      <CardHeader
-        class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b px-6 py-5 gap-4"
-      >
+      <CardHeader standard>
         <div class="flex items-center gap-3">
           <BackButton
             label="Kembali ke kalender pendidikan"
             @click="router.push('/academic/education-calendar')"
           />
-          <CardTitle class="text-2xl font-bold tracking-tight">
-            Manajemen Kalender
-          </CardTitle>
+          <CardTitle size="lg"> Manajemen Kalender </CardTitle>
         </div>
-        <div class="flex flex-col sm:flex-row w-full sm:w-auto gap-2">
-          <Button
-            class="w-full sm:w-auto"
-            @click="navigateToCreate"
-          >
+        <div class="flex gap-2">
+          <Button @click="navigateToCreate">
             <Plus class="size-4 mr-2" />
             Tambah Agenda
           </Button>

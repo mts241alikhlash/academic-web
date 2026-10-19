@@ -22,13 +22,7 @@ import {
   DialogTitle,
 } from '@mts241alikhlash/ui/dialog'
 import { ScrollArea } from '@mts241alikhlash/ui/scroll-area'
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@mts241alikhlash/ui/form'
+import { FormControl, FloatingField } from '@mts241alikhlash/ui/form'
 import { Input } from '@mts241alikhlash/ui/input'
 import { AlertCircle } from '@lucide/vue'
 import type { CurriculumSubject, CurriculumSubjectSavePayload } from '../types'
@@ -159,9 +153,12 @@ function confirmSave() {
           class="space-y-4 px-6 py-4"
           @submit.prevent="onSubmit"
         >
-          <FormField name="subjectId">
-            <FormItem>
-              <FormLabel> Mata Pelajaran </FormLabel>
+          <FloatingField
+            name="subjectId"
+            label="Mata Pelajaran"
+            always-float
+          >
+            <div class="content-start">
               <FormControl>
                 <Input
                   :model-value="
@@ -174,49 +171,41 @@ function confirmSave() {
                   disabled
                 />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ value, handleChange }"
             name="hoursPerWeek"
+            label="Jam per Minggu"
+            required
           >
-            <FormItem>
-              <FormLabel>
-                Jam per Minggu
-                <span class="text-destructive">*</span>
-              </FormLabel>
+            <div class="content-start">
               <FormControl>
                 <Input
                   :model-value="value"
                   type="number"
                   min="1"
                   max="10"
-                  placeholder="Masukkan jumlah jam per minggu"
                   @update:model-value="(val) => handleChange(val)"
                 />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
-          <FormField
+          <FloatingField
             v-slot="{ value, handleChange }"
             name="passingScore"
+            label="KKM"
+            required
           >
-            <FormItem>
-              <FormLabel>
-                KKM
-                <span class="text-destructive">*</span>
-              </FormLabel>
+            <div class="content-start">
               <FormControl>
                 <Input
                   :model-value="value"
                   type="number"
                   min="0"
                   max="100"
-                  placeholder="75"
                   @update:model-value="(val) => handleChange(val)"
                 />
               </FormControl>
@@ -226,9 +215,8 @@ function confirmSave() {
                 bawah angka ini. Guru dapat menaikkan atau menurunkannya untuk
                 kelas yang diampunya lewat Penugasan Mengajar.
               </p>
-              <FormMessage />
-            </FormItem>
-          </FormField>
+            </div>
+          </FloatingField>
 
           <Alert
             v-if="formError"
