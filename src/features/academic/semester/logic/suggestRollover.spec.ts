@@ -30,7 +30,7 @@ describe('suggestRollover', () => {
     expect(suggestion?.target.id).toBe('genap')
   })
 
-  it('stays quiet when the activated term already holds enrolments', () => {
+  it('stays quiet when the activated term already holds enrollments', () => {
     expect(suggestRollover(ganjil, [ganjil, genap])).toBeNull()
   })
 

@@ -11,8 +11,8 @@ export function suggestRollover(
 ): RolloverSuggestion | null {
   if (!activated) return null
 
-  const enrolments = activated._count?.enrollments
-  if (enrolments === undefined || enrolments > 0) return null
+  const enrollments = activated._count?.enrollments
+  if (enrollments === undefined || enrollments > 0) return null
 
   const populatedSiblings = semesters.filter(
     (candidate) =>

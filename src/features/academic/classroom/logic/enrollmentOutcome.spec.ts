@@ -35,7 +35,7 @@ describe('enrollmentOutcome', () => {
     expect(enrollmentOutcome('ACTIVE').variant).toBe('outline')
   })
 
-  it('shows an unrecognised status rather than hiding it', () => {
+  it('shows an unrecognized status rather than hiding it', () => {
     expect(enrollmentOutcome('SOMETHING_NEW').label).toBe('SOMETHING_NEW')
   })
 })
