@@ -1,5 +1,11 @@
 # academic-web
 
+## 1.4.2
+
+### Patch Changes
+
+- 39a316d: Card, judul, dan isi memakai standar `@mts241alikhlash/ui` 1.8; field form memakai `FloatingField`; menu agenda kalender dan relasi orang tua memakai `ActionCell`.
+
 ## 1.4.1
 
 ### Patch Changes
