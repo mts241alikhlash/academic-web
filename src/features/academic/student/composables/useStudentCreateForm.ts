@@ -206,7 +206,6 @@ export function useStudentCreateForm() {
         gradeId: values.gradeId,
         classroomId: values.classroomId,
         identifier: values.nis,
-        password: values.nis,
         address: hasAddress.value ? { ...address.value } : null,
         parents: parents.value.map((parent) => ({
           ...parent,
