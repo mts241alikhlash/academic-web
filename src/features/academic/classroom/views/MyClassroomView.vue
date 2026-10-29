@@ -47,7 +47,7 @@ function supervisorName(supervisor: MyClassroom['supervisor']) {
 </script>
 
 <template>
-  <div class="p-4 md:p-6 lg:p-8">
+  <div class="px-4 pb-4 pt-1 sm:px-6 sm:pb-6 sm:pt-2">
     <div
       v-if="loading"
       class="space-y-5"
@@ -98,7 +98,7 @@ function supervisorName(supervisor: MyClassroom['supervisor']) {
 
     <Card
       v-else-if="!data"
-      class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
+      class="overflow-visible rounded-none border-0 bg-transparent shadow-none ring-0"
     >
       <CardContent class="py-16 text-center">
         <School class="mx-auto size-10 text-muted-foreground opacity-40" />
@@ -113,9 +113,12 @@ function supervisorName(supervisor: MyClassroom['supervisor']) {
     <template v-else>
       <Card
         gap="none"
-        class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
+        class="overflow-visible rounded-none border-0 bg-transparent shadow-none ring-0"
       >
-        <CardHeader standard>
+        <CardHeader
+          standard
+          class="min-h-0 border-b-0 bg-transparent px-0 pt-0 pb-3 sm:px-0"
+        >
           <CardTitle size="lg"> Kelas {{ data.classroom.code }} </CardTitle>
         </CardHeader>
 
@@ -128,7 +131,10 @@ function supervisorName(supervisor: MyClassroom['supervisor']) {
               gap="none"
               class="shadow-none"
             >
-              <CardHeader standard>
+              <CardHeader
+                standard
+                class="min-h-0 border-b-0 bg-transparent px-0 pt-0 pb-3 sm:px-0"
+              >
                 <div class="flex items-center gap-3">
                   <CardTitle size="md"> Informasi Kelas </CardTitle>
                 </div>
@@ -182,7 +188,10 @@ function supervisorName(supervisor: MyClassroom['supervisor']) {
               gap="none"
               class="shadow-none"
             >
-              <CardHeader standard>
+              <CardHeader
+                standard
+                class="min-h-0 border-b-0 bg-transparent px-0 pt-0 pb-3 sm:px-0"
+              >
                 <div class="flex items-center gap-3">
                   <CardTitle size="md"> Struktur Kelas </CardTitle>
                 </div>
@@ -223,7 +232,10 @@ function supervisorName(supervisor: MyClassroom['supervisor']) {
             gap="none"
             class="shadow-none"
           >
-            <CardHeader standard>
+            <CardHeader
+              standard
+              class="min-h-0 border-b-0 bg-transparent px-0 pt-0 pb-3 sm:px-0"
+            >
               <div class="flex items-center gap-3">
                 <div class="flex items-center gap-2">
                   <CardTitle size="md"> Teman Sekelas </CardTitle>

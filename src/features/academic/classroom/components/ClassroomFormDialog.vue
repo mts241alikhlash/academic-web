@@ -107,7 +107,7 @@ const classroomForm = useClassroomForm({
                   @update:model-value="handleChange"
                 >
                   <FormControl>
-                    <SelectTrigger class="h-9 w-full">
+                    <SelectTrigger class="w-full">
                       <SelectValue placeholder="Pilih tahun ajaran" />
                     </SelectTrigger>
                   </FormControl>
@@ -136,7 +136,7 @@ const classroomForm = useClassroomForm({
                   @update:model-value="handleChange"
                 >
                   <FormControl>
-                    <SelectTrigger class="h-9 w-full">
+                    <SelectTrigger class="w-full">
                       <SelectValue placeholder="Pilih tingkat" />
                     </SelectTrigger>
                   </FormControl>
@@ -163,7 +163,7 @@ const classroomForm = useClassroomForm({
                 <FormControl>
                   <Input
                     type="text"
-                    class="h-9"
+                    class=""
                     v-bind="componentField"
                   />
                 </FormControl>
@@ -179,7 +179,7 @@ const classroomForm = useClassroomForm({
                 <FormControl>
                   <Input
                     type="text"
-                    class="h-9"
+                    class=""
                     v-bind="componentField"
                   />
                 </FormControl>
@@ -198,7 +198,7 @@ const classroomForm = useClassroomForm({
                     type="text"
                     inputmode="numeric"
                     pattern="[0-9]*"
-                    class="h-9"
+                    class=""
                     :model-value="String(value ?? '')"
                     @keydown="
                       (e: KeyboardEvent) => {
@@ -242,7 +242,7 @@ const classroomForm = useClassroomForm({
                   @update:model-value="handleChange($event === 'true')"
                 >
                   <FormControl>
-                    <SelectTrigger class="h-9 w-full">
+                    <SelectTrigger class="w-full">
                       <SelectValue placeholder="Pilih status" />
                     </SelectTrigger>
                   </FormControl>
