@@ -90,13 +90,16 @@ onMounted(async () => {
     <Card
       v-else
       gap="none"
-      class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
+      class="overflow-visible rounded-none border-0 bg-transparent shadow-none ring-0"
     >
-      <CardHeader standard>
+      <CardHeader
+        standard
+        class="min-h-0 border-b-0 bg-transparent px-0 pt-0 pb-3 sm:px-0"
+      >
         <CardTitle size="lg"> Mata Pelajaran Saya </CardTitle>
       </CardHeader>
 
-      <CardContent variant="standard">
+      <CardContent class="p-0 sm:px-0">
         <Card
           v-if="!classroomCode"
           class="shadow-none"

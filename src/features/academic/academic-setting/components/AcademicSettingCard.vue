@@ -26,10 +26,10 @@ const { can } = useRoleGuard()
 </script>
 
 <template>
-  <div class="p-4 md:p-6 lg:p-8">
+  <div class="space-y-6 p-4 sm:p-6">
     <Card
       gap="none"
-      class="overflow-hidden rounded-2xl shadow-sm shadow-black/5 ring-1 ring-black/4"
+      class="overflow-hidden"
     >
       <CardHeader standard>
         <div class="flex items-center gap-2.5">
@@ -54,7 +54,7 @@ const { can } = useRoleGuard()
             type="button"
             variant="outline"
             size="sm"
-            class="h-9"
+            class=""
             :disabled="setting.isSaving.value"
             @click="setting.reset"
           >
@@ -63,7 +63,7 @@ const { can } = useRoleGuard()
           <Button
             type="button"
             size="sm"
-            class="h-9"
+            class=""
             :disabled="
               !setting.isDirty.value ||
               !setting.isValid.value ||

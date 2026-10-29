@@ -266,7 +266,7 @@ watch(
               </Button>
 
               <Button
-                class="h-9"
+                class=""
                 :disabled="!selectedFile || isProcessing"
                 @click="handleImport"
               >

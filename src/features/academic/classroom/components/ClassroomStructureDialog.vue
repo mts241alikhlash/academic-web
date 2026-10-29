@@ -200,7 +200,7 @@ const popoverStates = reactive<PopoverStates>({
                 <Command>
                   <CommandInput
                     placeholder="Cari nama guru..."
-                    class="h-9 text-sm"
+                    class="text-[length:var(--text-control,0.75rem)]"
                   />
                   <CommandEmpty>Guru tidak ditemukan.</CommandEmpty>
                   <CommandList class="max-h-[180px]">
@@ -297,7 +297,7 @@ const popoverStates = reactive<PopoverStates>({
                 <Command>
                   <CommandInput
                     placeholder="Cari nama siswa..."
-                    class="h-9 text-sm"
+                    class="text-[length:var(--text-control,0.75rem)]"
                   />
                   <CommandEmpty>Siswa tidak ditemukan.</CommandEmpty>
                   <CommandList class="max-h-[180px]">

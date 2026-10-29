@@ -22,6 +22,7 @@ import { academicInfoRoutes } from '@/features/academic/academic-info'
 import { academicCalendarTypeRoutes } from '@/features/academic/academic-calendar-type'
 import { semesterTypeRoutes } from '@/features/academic/semester-type'
 import { createRouter, createWebHistory } from 'vue-router'
+import { profileRoutes } from '@/features/platform/profile'
 import { authSessionService, useAuthStore } from '@/features/platform/auth'
 
 const router = createRouter({
@@ -43,6 +44,7 @@ const router = createRouter({
         ...scheduleRoutes,
         ...academicCalendarRoutes,
         ...academicSettingRoutes,
+        ...profileRoutes,
         ...academicYearRoutes,
         ...semesterRoutes,
         ...curriculumRoutes,
